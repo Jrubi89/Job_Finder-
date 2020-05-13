@@ -45,6 +45,8 @@ function callAPI(skillName, jobLocation, fullTime, offset) {
         console.log(response);
         requiredArray = response;
         console.log(requiredArray.length);
+        //reset divs and the global variables
+       $(".displaycards").empty();
         for (var i = 0; i < requiredArray.length; i++) {
             renderJobCards(
                 requiredArray[i].company,
@@ -65,8 +67,6 @@ function callAPI(skillName, jobLocation, fullTime, offset) {
 
 $(document).on("click", "#search-btn", function() {
     debugger;
-    //reset divs and the global variables
-    $(".displaycards").empty();
     console.log("display-jobs-section");
     //get the search parameters
     const searchSkill = $("#searchFormSkill").val().trim();

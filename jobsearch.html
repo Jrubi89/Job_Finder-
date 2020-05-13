@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+    <div class="row">
+        <div class="col-3">
+            <!-- Form -->
+            <form class="text-center border border-light p-5" action="#!">
+                <p class="h4 mb-4">Job Search</p>
+                <div class="row">
+                    <!-- Skill -->
+                    <input type="text" id="searchFormSkill" class="form-control mb-4" placeholder="Skill" />
+                </div>
+                <br />
+                <div class="row">
+                    <!-- Location -->
+                    <input type="text" id="searchFormLocation" class="form-control mb-4" placeholder="Location" />
+                </div>
+                <br />
+                <div class="row">
+                    <!-- Kind of Position -->
+                    <label>Kind of Position</label>
+                    <select class="browser-default custom-select mb-4" id="searchFormPosition">
+              <option value="" disabled>Choose option</option>
+              <option selected>Full Time</option>
+              <option>Part Time</option>
+            </select>
+                </div>
+                <div class="row">
+                    <!-- Message
+        <div class="form-group">
+            <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="Message"></textarea>
+        </div> -->
+                </div>
+                <div class="row">
+                    <!-- Copy -->
+                    <div class="custom-control custom-checkbox mb-4">
+                        <input type="checkbox" class="custom-control-input" id="searchFormCopy" />
+                        <label class="custom-control-label" for="searchFormCopy">Send me a copy of this message</label
+              >
+            </div>
+          </div>
+          <br />
+          <br />
+
+          <div class="row">
+            <!-- Send button -->
+            <button
+              class="btn btn-info btn-block"
+              id="search-btn"
+              type="submit"
+            >
+              Search
+            </button>
+          </div>
+        </form>
+        <!-- Form -->
+      </div>
+      <div class="col-6 displaycards">
+        <!-- display job cards through jquery -->
+      </div>
+      <div class="col-3"></div>
+    </div>
+    <script src="./assets/javascript/jobapp.js" async defer></script>
+  </body>
+</html>

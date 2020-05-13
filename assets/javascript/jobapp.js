@@ -1,9 +1,13 @@
-$('#myModal').on('shown.bs.modal', function() {
-    $('#myInput').trigger('focus')
-});
+var globalJobs = 0;
 
+function renderJobCards(iCompany, iUrl, iCreated_at, iDescription) {
+    var cardDiv = '<div class="row"><div class="card"><div class="card-body"><h4 class="card-title">' +
+        iCompany + '</h4><p class="card-text">' + iDescription.substring(0, 100) +
+        '</p> <button type="button" class="btn btn-light-blue btn-md">Read more</button></div></div></div>';
+    $(".displaycards").append(cardDiv);
+}
 
-function callAPI(apicategory, offset) {
+function callAPI(skillName, jobLocation, fullTime, offset) {
     debugger;
 
     // placeholderqueryURL for  API
@@ -13,8 +17,9 @@ function callAPI(apicategory, offset) {
         "https://jobs.github.com/positions.json?description=" +
         skillName +
         "&location=" +
-        location +
-        "&page=1";
+        jobLocation +
+        "&full_time=" +
+        fullTime + "&page=" + offset;
 
 
     console.log(queryURL);
@@ -29,39 +34,47 @@ function callAPI(apicategory, offset) {
         },
     }).then(function(response) {
         //return the response
-        // return response.data;
         debugger;
+        //initialize to 0
+        globalJobs = 0;
+
         console.log(response);
-        console.log(response.data);
-        requiredArray = response.data;
+        requiredArray = response;
         console.log(requiredArray.length);
         for (var i = 0; i < requiredArray.length; i++) {
             renderJobCards(
                 requiredArray[i].company,
                 requiredArray[i].url,
-                requiredArray[i].create_at
+                requiredArray[i].created_at,
+                requiredArray[i].description
+
             );
             globalJobs = globalJobs + 1;
 
         }
+
 
     });
 
 };
 
 
-$(document).on("click", ".search-btn", function() {
+$(document).on("click", "#search-btn", function() {
     debugger;
     //reset divs and the global variables
-    $(".display-jobs").empty();
+
     console.log("display-jobs-section");
     //get the search parameters
     const searchSkill = $("#searchFormSkill").val().trim();
     const searchLocation = $("#searchFormLocation").val().trim();
-    const fullTime = $("searchFormPosition").children("option:selected").val()
+    const fullTime = $("#searchFormPosition").children("option:selected").val();
 
-    console.log(searchSkill, searchLocation, fullTime)
+    const fullTimeBoolVal = (fullTime === "Full Time") ? true : false;
 
-    callAPI(searchSkill, searchLocation, fullTime);
+    const pageNum = 1;
+
+    console.log(searchSkill, searchLocation, fullTime, fullTimeBoolVal)
+
+    callAPI(searchSkill, searchLocation, fullTimeBoolVal, pageNum);
 
 });

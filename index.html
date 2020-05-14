@@ -13,6 +13,10 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="assets/javascript/app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 
 </head>
 
@@ -57,7 +61,64 @@
             </div>
         </div>
     </div>
-    </div>
+    <div class="row">
+        <div class="col-3">
+            <!-- Form -->
+            <form class="text-center border border-light p-5" action="#!">
+                <p class="h4 mb-4">Job Search</p>
+                <div class="row">
+                    <!-- Skill -->
+                    <input type="text" id="searchFormSkill" class="form-control mb-4" placeholder="Skill" />
+                </div>
+                <br />
+                <div class="row">
+                    <!-- Location -->
+                    <input type="text" id="searchFormLocation" class="form-control mb-4" placeholder="Location" />
+                </div>
+                <br />
+                <div class="row">
+                    <!-- Kind of Position -->
+                    <label>Kind of Position</label>
+                    <select class="browser-default custom-select mb-4" id="searchFormPosition">
+              <option value="" disabled>Choose option</option>
+              <option selected>Full Time</option>
+              <option>Part Time</option>
+            </select>
+                </div>
+                <div class="row">
+                    <!-- Message
+        <div class="form-group">
+            <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="Message"></textarea>
+        </div> -->
+                </div>
+                <div class="row">
+                    <!-- Copy -->
+                    <div class="custom-control custom-checkbox mb-4">
+                        <input type="checkbox" class="custom-control-input" id="searchFormCopy" />
+                        <label class="custom-control-label" for="searchFormCopy">Send me a copy of this message</label
+              >
+            </div>
+          </div>
+          <br />
+          <br />
+
+          <div class="row">
+            <!-- Send button -->
+            <button
+              class="btn btn-info btn-block"
+              id="search-btn"
+              type="submit"
+            >
+              Search
+            </button>
+          </div>
+        </form>
+        <!-- Form -->
+      </div>
+      <div class="col-6 displaycards">
+        <!-- display job cards through jquery -->
+      </div>
+      <div class="col-3"></div>
     </div>
 
 

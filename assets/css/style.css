@@ -8,4 +8,27 @@ body {
     background-color: #64FFDA;
 }
 
+h5 {
+    
+    font-size: 50px;
+}
+
+header {
+    background-image: url('https://i2.wp.com/linkedinheaders.com/wp-content/uploads/2018/02/laptop-working-header.jpg?fit=1584%2C396&ssl=1');
+    height: 250px;
+    text-align: center;
+    padding: 35px;
+}
+
+h2 {
+    font: bold;
+    font-size: 50px;
+    font-family: fantasy;
+   
+}
+
+.modal-footer {
+    background-color: white;
+    height: 100px;
+}
 .exampleModal {}

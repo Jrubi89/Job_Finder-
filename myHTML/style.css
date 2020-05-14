@@ -1,0 +1,55 @@
+header {
+    background-color: lightblue;
+    height: 100px;
+    text-align: center;
+    padding: 25px;
+}
+
+
+.charts {
+    padding: 20px;
+    
+}
+p {
+    
+    border: white;
+    color:white;
+    padding: 3px;
+    margin-top: 20px;
+}
+
+.graph {
+    width: 500px;
+}
+
+section {
+    text-align: center;
+    align-content: center;
+    margin-bottom: 20px;
+    
+   
+}
+
+button {
+    background-color: red;
+    color: black;
+    size: 2in;
+    
+   
+}
+
+#userNavbar {
+
+    align-content: center;
+    background-color:lightgreen;
+    text-align: center;
+    padding: 0px;
+    height: 80px;
+    font-size: medium;
+    font-weight: bold;
+
+}
+
+input {
+    padding:10px;
+}

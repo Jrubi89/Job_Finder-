@@ -1,11 +1,7 @@
-body {
+header{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    background-color: linen;
-    font-size: x-large;
+    font-size: 28px;
+    background-color: lightblue;
+    width: 100%;
+    padding: 10px;
 }
-
-.jumbotron {
-    background-color: #64FFDA;
-}
-
-.exampleModal {}

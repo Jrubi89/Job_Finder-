@@ -5,3 +5,19 @@ header{
     width: 100%;
     padding: 10px;
 }
+
+#fileSelect {
+    padding: 10px;
+    font-family: "Montserrat", sans-serif;
+    color: white;
+    background-color: #009578;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#fileText { 
+    font-family: "Montserrat", sans-serif;
+    color: gray;
+    margin-left: 5px;
+}

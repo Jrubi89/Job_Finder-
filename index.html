@@ -16,7 +16,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
-    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+   
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 </head>
 
@@ -35,38 +37,59 @@
         <hr class="my-4">
         <p>"Pay yourself first!"</p>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                    Let's Get Started 
-                </button>
+        <button id="myBtn">Let's Get Started!!</button>
 
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5>Login</h5>
-                            
-                    </div>
-                    
-                    <div class="modal-body">
-                        <div class="input-group input-group-sm mb-3">
-                            <div class="input-group-prepend">
-                                <input type="text" placeholder="Full Name"> 
-                            </div>
-                        </div>
-                        <div class="input-group-prepend">
-                            <input type="text" placeholder="Email"> 
-                        </div>
-                    </div>
-                
-                </div>
-                <div class="modal-footer">
-                    <button id="button-open btn btn-secondary">Close</button>
-                    <button id="button-open" class="btn btn-primary">Continue</button>
-                </div>
-            </div>
-        </div>
     </div>
+
+
+   
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+
+    <h5>Login</h5>
+        
+        
+        
+    <div class="modal-body">
+
+        <div class="input-group-prepend">
+            <input type="text" placeholder="Full Name">
+        </div>
+        <br>
+
+        <div class="input-group-prepend">
+            <input type="text" placeholder="Email">
+        </div>
+    
+    
+    </div>
+    <br>
+    <br>
+    
+    <button id='options1'>Continue</button>
+ 
+    
+  </div>
+
+</div>
+        
+  
+
+        
+                
+
+                
+        
+                
+        
+            
+        
+    
     <div class="row" id = "search-ques">
         <div class="col-3">
             <!-- Form -->

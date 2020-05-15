@@ -4,13 +4,12 @@ body {
     font-size: x-large;
 }
 
-.jumbotron {
-    background-color: #64FFDA;
-}
+
 
 h5 {
     
     font-size: 50px;
+    text-align: center;
 }
 
 header {
@@ -27,8 +26,75 @@ h2 {
    
 }
 
-.modal-footer {
-    background-color: white;
-    height: 100px;
+#myBtn {
+    background:lightblue;
 }
-.exampleModal {}
+
+
+
+
+.modal {
+    
+    
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+   
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    
+    
+    
+    
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color:white;
+    margin: auto;
+    padding-bottom: 70px;  
+    border: 3px solid blue;
+    width: 500px;
+    
+  }
+  
+  /* The Close Button */
+  .close {
+    color: red;
+    float: left;
+    font-size: 50px;
+    font-weight: bold;
+    padding-left: 30px;
+    
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    
+    cursor: pointer;
+  }
+
+ 
+
+ 
+   
+      
+
+    #options1 {
+        color: black;
+        background: aqua;
+        margin-right: 200px;
+        margin-left: 180px; 
+        width: 120px;   
+        
+      
+      }
+
+.input-group-prepend {
+   
+    padding-left: 70px;
+    padding-top: 20px;
+    
+    
+    
+}

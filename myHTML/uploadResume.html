@@ -41,16 +41,16 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="indexproj.html">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
+               <!-- <li class="nav-item">
                     <a class="nav-link" href="#">Recently Applied Jobs</a>
 
-                </li>
+                </li>-->
                 <li class="nav-item">
                     <a class="nav-link" href="uploadResume.html">Upload Resume</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="search by job title" aria-label="Search">
+                <input class="form-control mr-sm-2" type="search" placeholder="keyword 'java'" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 <!--filter results OR search all jobs by title-->
             </form>
@@ -58,10 +58,12 @@
     </nav>
     <main class="container">
         <!--REFERENCE: https://www.taniarascia.com/how-to-upload-files-to-a-server-with-plain-javascript-and-php/-->
-        <form method="post" enctype="multipart/form-data">
+        <form id="uploadResume" method="post" enctype="multipart/form-data">
             <input type="file" name="files[]" multiple />
             <input type="submit" value="Upload File" name="submit" />
         </form>
+
+        <script src="upload.js"></script>
         <!--var http = require('http');
 
         http.createServer(function (req, res) {

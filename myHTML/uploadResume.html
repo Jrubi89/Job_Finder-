@@ -29,11 +29,11 @@
     <header>
         ​
         <topping><b>
-            <h2>Job Search</h2>
-          </b></topping>
+                <h2>Job Search</h2>
+            </b></topping>
         ​
-      </header>
-    
+    </header>
+
     ​
     ​<nav class="navbar navbar-expand-lg navbar-light bg-light" id="userNavbar">
         <div class="collapse navbar-collapse" id="userNavbar">
@@ -41,7 +41,7 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="indexproj.html">Home <span class="sr-only">(current)</span></a>
                 </li>
-               <!-- <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="#">Recently Applied Jobs</a>
 
                 </li>-->
@@ -56,26 +56,19 @@
             </form>
         </div>
     </nav>
-    <main class="container">
+    <div class="resume">
+
         <!--REFERENCE: https://www.taniarascia.com/how-to-upload-files-to-a-server-with-plain-javascript-and-php/-->
         <form id="uploadResume" method="post" enctype="multipart/form-data">
             <input type="file" name="files[]" multiple />
-            <input type="submit" value="Upload File" name="submit" />
+            <p>
+                <input type="submit" value="Upload File" name="submit" />
+            </p>
         </form>
 
         <script src="upload.js"></script>
-        <!--var http = require('http');
 
-        http.createServer(function (req, res) {
-        res.writeHead(200, {'Content-Type': 'text/html'});
-        res.write('<form action="fileupload" method="post" enctype="multipart/form-data">');
-            res.write('<input type="file" name="filetoupload"><br>');
-            res.write('<input type="submit">');
-            res.write('</form>');
-        return res.end();
-        }).listen(8080);-->
-
-    </main>
+    </div>
 </body>
 
 </html>

@@ -43,7 +43,7 @@ button {
     align-content: center;
     background-color:lightgreen;
     text-align: center;
-    padding: 0px;
+
     height: 80px;
     font-size: medium;
     font-weight: bold;
@@ -52,4 +52,20 @@ button {
 
 input {
     padding:10px;
+}
+
+.resume {
+    border: lightblue;
+    border-width: 10px;
+    border-style: inset;
+    width: 550px;
+    height: 250px;
+    margin-top: 20px;
+    text-align: center;
+    margin-left: 30%;
+    margin-right: 30%
+    
+    
+
+    ;
 }

@@ -36,7 +36,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">My Information</ h5>
+                        <h5> class="modal-title" id="exampleModalLabel">My Information </ h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -61,66 +61,72 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-3">
-            <!-- Form -->
-            <form class="text-center border border-light p-5" action="#!">
-                <p class="h4 mb-4">Job Search</p>
-                <div class="row">
-                    <!-- Skill -->
-                    <input type="text" id="searchFormSkill" class="form-control mb-4" placeholder="Skill" />
-                </div>
-                <br />
-                <div class="row">
-                    <!-- Location -->
-                    <input type="text" id="searchFormLocation" class="form-control mb-4" placeholder="Location" />
-                </div>
-                <br />
-                <div class="row">
-                    <!-- Kind of Position -->
-                    <label>Kind of Position</label>
-                    <select class="browser-default custom-select mb-4" id="searchFormPosition">
-              <option value="" disabled>Choose option</option>
-              <option selected>Full Time</option>
-              <option>Part Time</option>
-            </select>
-                </div>
-                <div class="row">
-                    <!-- Message
-        <div class="form-group">
-            <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="Message"></textarea>
-        </div> -->
-                </div>
-                <div class="row">
-                    <!-- Copy -->
-                    <div class="custom-control custom-checkbox mb-4">
-                        <input type="checkbox" class="custom-control-input" id="searchFormCopy" />
-                        <label class="custom-control-label" for="searchFormCopy">Send me a copy of this message</label
-              >
+<!--Input Field -->
+   <div id="search" class="clearfix">
+        <form class="positions" action="/positions" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+<!--Job Description-->
+    <div class="bucket description">
+        <h4>Job Description</h4>
+    <div class="field">
+        <input type="text" name="description" id="searchFormSkill" placeholder="Filter by title, benefits, companies, skill" autocomplete="off" />
+    </div>
+</div>
+<!--Job Location-->
+    <div class="bucket location">
+        <h4>Location</h4>
+             <div class="field">
+        <input type="text" name="location" id="searchFormLocation" placeholder="Filter by city, state, zip code or country" autocomplete="off" />
             </div>
-          </div>
-          <br />
-          <br />
+        </div>
+ <!--Job Position-->
+    <div class="Position">
+        <h5>Position type</h5>
 
-          <div class="row">
-            <!-- Send button -->
-            <button
-              class="btn btn-info btn-block"
-              id="search-btn"
-              type="submit"
-            >
-              Search
-            </button>
-          </div>
-        </form>
-        <!-- Form -->
-      </div>
-      <div class="col-6 displaycards">
-        <!-- display job cards through jquery -->
-      </div>
-      <div class="col-3"></div>
+            <select class="browser-default custom-select mb-4" id="searchFormPosition">
+
+      <option value="" disabled>Choose option</option>
+
+      <option selected>Full Time</option>
+
+      <option>Part Time</option>
+
+    </select>
+
+        </div>
+
+        <div class="row">
+
+            <!-- Message
+
+<div class="form-group">
+
+    <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="Message"></textarea>
+
+</div> -->
+
+        </div>
+
+        <div class="row">
+
+            <!-- Copy -->
+
+            <div class="custom-control custom-checkbox mb-4">
+
+                <input type="checkbox" class="custom-control-input" id="searchFormCopy" />
+
+                <label class="custom-control-label" for="searchFormCopy"><h5>Email a copy</h5>
+                </label>
+
+
+
     </div>
 
+  </div>
+      <div class="row">
+        <button type="submit">Search</button>
+
+</form>
+</div>
 
 </body>
 

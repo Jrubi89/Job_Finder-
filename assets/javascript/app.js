@@ -1,37 +1,36 @@
 $(document).ready(function(){
 
-    // $('modal').on('clicked', function() {
-    //     console.log('clicked')
-       
-    // });
+$('#myModal').on('shown.bs.modal', function() {
+    $('#myInput').trigger('focus')
+});
 
 $("#search-ques").hide(); 
 
 
-// Get the modal
-var modal = document.getElementById("myModal");
+    // Get the modal
+    var modal = document.getElementById("myModal");
 
-                    // Get the button that opens the modal
-                    var btn = document.getElementById("myBtn");
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
 
-                    // When the user clicks the button, open the modal 
-                        btn.onclick = function() {
-                        modal.style.display = "block";
-                     }
+    // When the user clicks the button, open the modal 
+    btn.onclick = function () {
+        modal.style.display = "block";
+    }
 
-                    // Get the <span> element that closes the modal
-                    var span = document.getElementsByClassName("close")[0];
-                    // When the user clicks on <span> (x), close the modal
-                    span.onclick = function() {
-                    modal.style.display = "none";
-                        }
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
 
-                    // When the user clicks anywhere outside of the modal, close it
-                    window.onclick = function(event) {
-                    if (event.target == modal) {
-                        modal.style.display = "none";
-                    }
-                    }
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
 
     var button = document.getElementById("options1");
    
@@ -39,51 +38,7 @@ var modal = document.getElementById("myModal");
 
         $("#search-ques").show();
         $(".modal-content").hide();
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // $( function() {
-    //      $( "#modal-full" ).dialog({
-    //        autoOpen: false,
-        
-    //   } );
-
-
-//$("#search-ques").show();
-
-
-//function clickFunction() {
- //   console.log('clicked')
- // }
-
- // $('#close').on("click", function() { 
-
-   // console.log ("clicked")
-         
-     // $("#search-ques").show();         TRYING TO HID JOB SEARCH PRIOR TO LOGIN  
-  //});
-
-
-
-
-
 
 var globalJobs = 0;
 
@@ -92,12 +47,10 @@ function renderJobCards(iCompany, iUrl, iCreated_at, iDescription) {
         iCompany + '</h4><p class="card-text">' + iDescription.substring(0, 100) +
         '</p> <button type="button" class="btn btn-light-blue btn-md">Read more</button></div></div></div>';
     $(".displaycards").append(cardDiv);
-    
 }
 
 function callAPI(skillName, jobLocation, fullTime, offset) {
     debugger;
-    
 
     // placeholderqueryURL for  API
     //need a try catch block for errors
@@ -112,7 +65,6 @@ function callAPI(skillName, jobLocation, fullTime, offset) {
 
 
     console.log(queryURL);
-    
 
     $.ajax({
         url: queryURL,
@@ -151,23 +103,18 @@ function callAPI(skillName, jobLocation, fullTime, offset) {
 };
 
 
+    $(document).on("click", "#search-btn", function () {
+        debugger;
+        console.log("display-jobs-section");
+        //get the search parameters
+        const searchSkill = $("#searchFormSkill").val().trim();
+        const searchLocation = $("#searchFormLocation").val().trim();
+        const fullTime = $("searchFormPosition").children("option:selected").val()
 
+        console.log(searchSkill, searchLocation, fullTime)
 
-    $(document).on("click", "#search-btn", function() {
-    debugger;
-    console.log("display-jobs-section");
-    
-    //get the search parameters
-    const searchSkill = $("#searchFormSkill").val().trim();
-    const searchLocation = $("#searchFormLocation").val().trim();
-    const fullTime = $("searchFormPosition").children("option:selected").val()
-
-    console.log(searchSkill, searchLocation, fullTime)
-
-    callAPI(searchSkill, searchLocation, fullTime);
+        callAPI(searchSkill, searchLocation, fullTime);
 
     });
-    
 
 });
-

@@ -4,7 +4,11 @@ body {
     font-size: x-large;
 }
 
+.jumbotron {
+    background-color: #64FFDA;
+}
 
+.exampleModal {}
 
 h5 {
     
@@ -12,12 +16,12 @@ h5 {
     text-align: center;
 }
 
-header {
+/* header {
     background-image: url('https://i2.wp.com/linkedinheaders.com/wp-content/uploads/2018/02/laptop-working-header.jpg?fit=1584%2C396&ssl=1');
     height: 250px;
     text-align: center;
     padding: 35px;
-}
+} */
 
 h2 {
     font: bold;
@@ -31,21 +35,13 @@ h2 {
 }
 
 
-
-
-.modal {
-    
-    
+.modal {    
     z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-   
+    padding-top: 100px; /* Location of the box */   
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     
-    
-    
-    
-  }
+}
   
   /* Modal Content */
   .modal-content {
@@ -67,34 +63,22 @@ h2 {
     
   }
   
-  .close:hover,
+.close:hover,
   .close:focus {
     color: #000;
-    
     cursor: pointer;
   }
 
- 
-
- 
-   
-      
-
-    #options1 {
-        color: black;
-        background: aqua;
-        margin-right: 200px;
-        margin-left: 180px; 
-        width: 120px;   
-        
-      
-      }
+#options1 {
+    color: black;
+    background: aqua;
+    margin-right: 200px;
+    margin-left: 180px; 
+    width: 120px;   
+}
 
 .input-group-prepend {
-   
-    padding-left: 70px;
-    padding-top: 20px;
-    
-    
+   padding-left: 70px;
+  padding-top: 20px;
     
 }

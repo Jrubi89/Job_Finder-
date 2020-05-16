@@ -1,10 +1,12 @@
+// $('#myModal').on('shown.bs.modal', function() {
+//     $('#myInput').trigger('focus')
+// });
+
+//------------------------------------------------------------------------------
+
 $(document).ready(function(){
 
-$('#myModal').on('shown.bs.modal', function() {
-    $('#myInput').trigger('focus')
-});
-
-$("#search-ques").hide(); 
+    $("#search").hide(); 
 
 
     // Get the modal
@@ -32,13 +34,21 @@ $("#search-ques").hide();
         }
     }
 
+    //Adding click actions for "Continue"
+
     var button = document.getElementById("options1");
    
     button.onclick = function (){
 
-        $("#search-ques").show();
+        $("#search").show();
         $(".modal-content").hide();
     }
+
+
+});  // Ends document ready
+
+
+//------------------------------------------------------------------------------------------------
 
 var globalJobs = 0;
 
@@ -103,18 +113,16 @@ function callAPI(skillName, jobLocation, fullTime, offset) {
 };
 
 
-    $(document).on("click", "#search-btn", function () {
-        debugger;
-        console.log("display-jobs-section");
-        //get the search parameters
-        const searchSkill = $("#searchFormSkill").val().trim();
-        const searchLocation = $("#searchFormLocation").val().trim();
-        const fullTime = $("searchFormPosition").children("option:selected").val()
+$(document).on("click", "#search-btn", function() {
+    debugger;
+    console.log("display-jobs-section");
+    //get the search parameters
+    const searchSkill = $("#searchFormSkill").val().trim();
+    const searchLocation = $("#searchFormLocation").val().trim();
+    const fullTime = $("searchFormPosition").children("option:selected").val()
 
-        console.log(searchSkill, searchLocation, fullTime)
+    console.log(searchSkill, searchLocation, fullTime)
 
-        callAPI(searchSkill, searchLocation, fullTime);
-
-    });
+    callAPI(searchSkill, searchLocation, fullTime);
 
 });

@@ -11,6 +11,14 @@ function renderJobCards(iCompany, iUrl, iCreated_at, iDescription) {
     $(".displaycards").append(cardDiv);
 }
 
+function username() {
+    let fullname = document.getElementById("inputGroup-sizing-sm").value;
+
+    document.write("Welcome to our family, " + fullname)
+
+    console.log("it worked!")
+}
+
 function callAPI(skillName, jobLocation, fullTime, offset) {
     debugger;
 

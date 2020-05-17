@@ -3,7 +3,7 @@
 
 <head>
     <title>
-        Buddy Tracker
+        Career Search
     </title>
 
     <meta charset="UTF-8">
@@ -20,49 +20,64 @@
 
 </head>
 
-<body>
-    <div class="jumbotron" style="text-align: center;">
-        <h1 class="display-4">Budget Buddy</h1>
-        <p class="lead">The All-In-One Place To Keep You On Track!</p>
-        <hr class="my-4">
-        <p>"Pay yourself first!"</p>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                    Let's Get Started 
-                </button>
+    <header>
+        <topping><b><h2>Job Search</h2></b></topping>
+  
+    </header>
 
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5> class="modal-title" id="exampleModalLabel">My Information </ h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="input-group input-group-sm mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroup-sizing-sm">Full Name: </span>
-                            </div>
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                        </div>
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-sm">E-Mail: </span>
-                        </div>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                    </div>
+<body>
+    <!-- <div class="jumbotron" style="text-align: center;"> -->
+        <div class="container" style="text-align: center;">
+            <h1 class="display-4">Careers</h1>
+            <p class="lead">The All-In-One Place To Keep You On Track!</p>
+            <hr class="my-4">
+            <p>"Pay yourself first!"</p>
+
+            <button id="myBtn">Let's Get Started!!</button>  <!-- Button trigger modal -->
+        
+            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Let's Get Started 
+                </button> -->
+
+        </div> <!--ends container-->      
+
+    
+<!-- Modal -->
+
+              
+    <div id="myModal" class="modal">
+      
+        
+        <div class="modal-content">
+          <span class="close">&times;</span><h1>Login</h1>
+      
+            <div class="modal-body">
+      
+                <div class="input-group-prepend">
+                    <input type="text" placeholder="Full Name">
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Continue</button>
+                    <br>
+      
+                <div class="input-group-prepend">
+                    <input type="text" placeholder="Email">
                 </div>
-            </div>
-        </div>
-    </div>
+            </div>  <!--Ends modal-body-->
+                    <br>
+                    <br>
+                <button id='options1'>Continue</button>
+      
+        </div>  <!--Ends modal-content-->
+      
+    </div> <!--Ends myModal-->
+
+
+<!------------------------------------------------------------------------------------------------>
+
+
 <!--Input Field -->
-   <div id="search" class="clearfix">
+
+   <div class= "row" id="search" class="clearfix">  
+    
         <form class="positions" action="/positions" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
 <!--Job Description-->
     <div class="bucket description">
@@ -125,8 +140,9 @@
       <div class="row">
         <button type="submit">Search</button>
 
-</form>
-</div>
+            </form>
+        </div>
+
 
 </body>
 

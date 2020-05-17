@@ -1,5 +1,23 @@
-$('#myModal').on('shown.bs.modal', function() {
-    $('#myInput').trigger('focus')
+
+
+
+$(document).ready(function () {
+    function username() {
+
+        let fullname = $("#userInput").val();
+        return fullname;
+    }
+
+    const myBtn = $("#contButton");
+    $('#openModal').click(function () {
+        $('#exampleModal').modal('show')
+    })
+
+
+    $('#contButton').click(function () {
+        console.log('Welcome ' + username());
+
+    })
 });
 
 var globalJobs = 0;
@@ -9,14 +27,6 @@ function renderJobCards(iCompany, iUrl, iCreated_at, iDescription) {
         iCompany + '</h4><p class="card-text">' + iDescription.substring(0, 100) +
         '</p> <button type="button" class="btn btn-light-blue btn-md">Read more</button></div></div></div>';
     $(".displaycards").append(cardDiv);
-}
-
-function username() {
-    let fullname = document.getElementById("inputGroup-sizing-sm").value;
-
-    document.write("Welcome to our family, " + fullname)
-
-    console.log("it worked!")
 }
 
 function callAPI(skillName, jobLocation, fullTime, offset) {
@@ -40,11 +50,11 @@ function callAPI(skillName, jobLocation, fullTime, offset) {
         url: queryURL,
         method: "GET",
         async: false,
-        error: function(err) {
+        error: function (err) {
             console.log(err);
             alert("Jobs requested could not be returned");
         },
-    }).then(function(response) {
+    }).then(function (response) {
         //return the response
         debugger;
         //initialize to 0
@@ -71,7 +81,7 @@ function callAPI(skillName, jobLocation, fullTime, offset) {
 };
 
 
-$(document).on("click", "#search-btn", function() {
+$(document).on("click", "#search-btn", function () {
     debugger;
     //reset divs and the global variables
     $(".displaycards").empty();

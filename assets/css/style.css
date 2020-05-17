@@ -5,9 +5,7 @@ body {
 }
 
 
-/* .jumbotron {
-    background-color: #64FFDA;
-} */
+
 
 #searchcolumn {
     padding-left: 10px;
@@ -25,7 +23,9 @@ body {
 }
 
 
+
 /* .field input::placeholder, #searchFormPosition {
+
     color: #aaa;
     font-size: small;
     font-weight:bold;
@@ -33,6 +33,7 @@ body {
     font-size:12px;   
     text-align: center;
       
+
 } */
 
 #page {
@@ -62,6 +63,7 @@ h5,
 /* ------------------Modal/header CSS-------------- */
 
 h1 {
+
     font-size: 50px;
     text-align: center;
 }

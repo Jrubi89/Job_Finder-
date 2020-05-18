@@ -4,7 +4,9 @@ body {
     font-size: x-large;
 }
 
-
+#userGreeting {
+    font-size: xx-large;
+}
 
 
 #searchcolumn {

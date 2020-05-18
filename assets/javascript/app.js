@@ -5,10 +5,12 @@
 //------------------------------------------------------------------------------
 
 
-$(document).ready(function() {
+$(document).ready(function () {
 
     $("#search").hide();
+    $("#userGreeting").hide();
 
+    let userName = window.localStorage.getItem("username")
 
 
     // Get the modal
@@ -28,14 +30,14 @@ $(document).ready(function() {
     var span = document.getElementsByClassName("close")[0];
     // When the user clicks on <span> (x), close the modal
 
-    span.onclick = function() {
+    span.onclick = function () {
 
         modal.style.display = "none";
     }
 
     // When the user clicks anywhere outside of the modal, close it
 
-    window.onclick = function(event) {
+    window.onclick = function (event) {
         if (event.target == modal) {
             modal.style.display = "none";
         }
@@ -46,11 +48,24 @@ $(document).ready(function() {
     var button = document.getElementById("options1");
 
 
-    button.onclick = function() {
+    button.onclick = function () {
         $("#search").show();
         $(".modal-content").hide();
+        $("#myBtn").hide();
+        $("#userGreeting").show();
+        
+
+        let personsName = $("#userName").val()
+        window.localStorage.setItem("username", personsName)
+
+        console.log("Welcome, " + personsName)
+
+        $("#userGreeting").append("Welcome, " + personsName)
+
+
     }
 
+    
 
 
 }); // Ends document ready
@@ -125,11 +140,11 @@ function callAPI(skillName, jobLocation, fullTime, offset) {
         url: queryURL,
         method: "GET",
         async: false,
-        error: function(err) {
+        error: function (err) {
             console.log(err);
             alert("Jobs requested could not be returned");
         },
-    }).then(function(response) {
+    }).then(function (response) {
         //return the response
 
         //initialize to 0
@@ -162,7 +177,7 @@ function callAPI(skillName, jobLocation, fullTime, offset) {
 };
 
 
-$(document).on("click", "#search-btn", function() {
+$(document).on("click", "#search-btn", function () {
     console.log("display-jobs-section");
     debugger
     //get the search parameters

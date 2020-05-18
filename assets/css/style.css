@@ -134,10 +134,13 @@ h2 {
     margin-left: 50px;
     height: 390px;
     padding: 50px;
+    width: 300px;
+
     
    
 }
 
 #article-words {
     width: 300px;
+    height: 200px;
 }

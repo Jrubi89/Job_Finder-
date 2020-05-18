@@ -80,6 +80,7 @@
     <!------------------------------------------------------------------------------------------------>
 
 
+  
     <!--Input Field -->
 
     <div class="row" id="search" class="clearfix">
@@ -87,20 +88,21 @@
         <div class="col-3" id="searchcolumn">
             <!-- Form -->
             <form class="text-center border border-light p-5" action="#!">
-                <p class="h4 mb-4">Job Search</p>
-                <div class="row">
-                    <!-- Skill -->
-                    <input type="text" id="searchFormSkill" class="form-control mb-4" placeholder="Skill" />
+                 <!--Description--> 
+                <p class="h4 mb-4">Job Description</p>
+                 <div class="row">
+                    <input type="text" id="searchFormSkill" class="form-control mb-4" placeholder="Filter by title, benefits, skills" />
                 </div>
-                <br />
+                
+                <!-- Location -->
+                <p class="h4 mb-4">Location</p>
                 <div class="row">
-                    <!-- Location -->
-                    <input type="text" id="searchFormLocation" class="form-control mb-4" placeholder="Location" />
+                    <input type="text" id="searchFormLocation" class="form-control mb-4" placeholder="Filter by city, state, zip code" />
                 </div>
-                <br />
+                
                 <div class="row">
                     <!-- Kind of Position -->
-                    <label>Kind of Position</label>
+                    <label>Position type</label>
                     <select class="browser-default custom-select mb-4" id="searchFormPosition">
                         <option value="" disabled>Choose option</option>
                         <option selected>Full Time</option>
@@ -111,26 +113,21 @@
                     <!-- Copy -->
                     <div class="custom-control custom-checkbox mb-4">
                         <input type="checkbox" class="custom-control-input" id="searchFormCopy" />
-                        <label class="custom-control-label" for="searchFormCopy">Send me a copy of this message</label
-              >
+                        <label class="custom-control-label" for="searchFormCopy">Email me results</label>
             </div>
           </div>
-          <br />
-          <br />
+    
 
           <div class="row">
             <!-- Send button -->
             <button
               class="btn btn-info btn-block"
               id="search-btn"
-              type="submit"
-            >
-              Search
-            </button>
+              type="submit"> Find jobs
+              </button>
           </div>
         </form>
-        <!-- Form -->
-      </div>
+       </div>
 
         <div class="col-6 displaycards">
             <!-- display job cards through jquery -->

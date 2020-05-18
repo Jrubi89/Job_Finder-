@@ -4,37 +4,28 @@ body {
     font-size: x-large;
 }
 
-
-
+/*CSS Search Box*/
 
 #searchcolumn {
-    padding-left: 10px;
-    padding-right: 10px;
-    font-size: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 20px; 
     float: left;
     font-family: 'Times New Roman', Times, serif;
     margin-top: 34px;
     padding-top: 50px;
     padding-bottom: 50px;
-    border-style: dotted;
-    color: #aaa;
     margin-right: 40px;
     margin-left: 40px;
+    text-align-last: left;
 }
-
-
-
-/* .field input::placeholder, #searchFormPosition {
-
+.field input::placeholder, #searchFormPosition {
     color: #aaa;
     font-size: small;
     font-weight:bold;
     font-family: 'Times New Roman', Times, serif;
-    font-size:12px;   
-    text-align: center;
-      
-
-} */
+    font-size:14px;   
+}
 
 #page {
     width: 100%;
@@ -44,13 +35,14 @@ body {
     color: black;
 }
 
-#search_button {
-    background: #869ca9;
-    color: #fff;
-    padding: 0 18px;
-    font-weight: bold;
+#search-btn {
+    background:#869ca9;
+    padding:0 18px;
+    font-weight:bold;
     font-family: 'Times New Roman', Times, serif;
-    font-size: 14px;
+    font-size:14px;
+    text-decoration-color: #fff;
+    box-sizing: initial;
 }
 
 h4,
@@ -58,6 +50,7 @@ h5,
 #searchFormCopy {
     color: black;
 }
+
 
 
 /* ------------------Modal/header CSS-------------- */

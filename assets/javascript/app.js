@@ -1,15 +1,6 @@
-// $('#myModal').on('shown.bs.modal', function() {
-//     $('#myInput').trigger('focus')
-// });
-
-//------------------------------------------------------------------------------
-
-
 $(document).ready(function() {
 
     $("#search").hide();
-
-
 
     // Get the modal
     var modal = document.getElementById("myModal");
@@ -49,14 +40,53 @@ $(document).ready(function() {
     button.onclick = function() {
         $("#search").show();
         $(".modal-content").hide();
+        $("#newsResults").hide();
+        $("#intro").hide();
     }
+
+    let url3 = 'http://newsapi.org/v2/top-headlines?country=us&category=technology&pagesize=3&page=1&apiKey=fa998b4e27f24b81880beb0cb16f85b6'
+    
+
+$.ajax({
+  url: url3,
+  method: "GET",
+  dataType: "JSON",
+
+
+  
+success: function (newsdata) {
+    let output = "";
+    let newNews = newsdata.articles;
+   
+   for (var i in newNews) {
+    output += `
+        <div class="row">
+          <div class="article-news">
+              <img src="${newNews[i].urlToImage}"  alt="${newNews[i].title}"height="200px" width="300px">
+                <div id= "article-words">Title: <a href="${newNews[i].url}" title="${newNews[i].title}">${newNews[i].title}</a>
+                <p><h5><b>Description</b>: ${newNews[i].description}</p><h5>
+                <a href="${newNews[i].url}" class="btn-read">Read More</a>
+          </div>
+        </div>   `;
+  }
+    $("#newsResults").html(output);
+    
+
+},  //ends newsdata
+}) //ends ajax
+
 
 
 
 }); // Ends document ready
 
+//---------------NEWS ARTICLES----------------------------------------------
+
+
+
 
 //------------------------------------------------------------------------------------------------
+
 var globalJobs = 0;
 
 function renderJobCards(iCompany, iCUrl, iUrl, iCreated_at, iDescription, iLocation, iTitle) {

@@ -9,141 +9,143 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="assets/javascript/app.js"></script>
+    <script src="./assets/javascript/app.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
     <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    
 
 </head>
 
-    <header>
-        <topping><b><h2>Job Search</h2></b></topping>
-  
-    </header>
+<header>
+    <topping><b><h2>Job Search</h2></b></topping>
+
+</header>
 
 <body>
-    <!-- <div class="jumbotron" style="text-align: center;"> -->
-        <div class="container" style="text-align: center;">
-            <h1 class="display-4">Careers</h1>
-            <p class="lead">The All-In-One Place To Keep You On Track!</p>
-            <hr class="my-4">
+    
+    <div class="container" style="text-align: center;">
+        <h1 class="display-4">Careers</h1>
+        <p class="lead">The All-In-One Place To Keep You On Track!</p>
+        <hr class="my-4">
+        <div id=intro>
             <p>"Pay yourself first!"</p>
 
-            <button id="myBtn">Let's Get Started!!</button>  <!-- Button trigger modal -->
+            <button id="myBtn">Let's Get Started!!</button>
+
+        </div>  
+
         
-            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                    Let's Get Started 
-                </button> -->
+        
+      
 
-        </div> <!--ends container-->      
+    </div>
+    <!--ends container-->
+    <div id = "newsResults"></div>
 
-    
-<!-- Modal -->
 
-              
+    <!-- Modal -->
+
+
     <div id="myModal" class="modal">
-      
-        
+
+
         <div class="modal-content">
-          <span class="close">&times;</span><h1>Login</h1>
-      
+            <span class="close">&times;</span>
+            <h1>Login</h1>
+
             <div class="modal-body">
-      
+
                 <div class="input-group-prepend">
                     <input type="text" placeholder="Full Name">
                 </div>
-                    <br>
-      
+                <br>
+
                 <div class="input-group-prepend">
                     <input type="text" placeholder="Email">
                 </div>
-            </div>  <!--Ends modal-body-->
-                    <br>
-                    <br>
-                <button id='options1'>Continue</button>
-      
-        </div>  <!--Ends modal-content-->
-      
-    </div> <!--Ends myModal-->
-
-
-<!------------------------------------------------------------------------------------------------>
-
-
-<!--Input Field -->
-
-   <div class= "row" id="search" class="clearfix">  <!--removed class= row -->
-    
-        <form class="positions" action="/positions" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
-<!--Job Description-->
-    <div class="bucket description">
-        <h4>Job Description</h4>
-    <div class="field">
-        <input type="text" name="description" id="searchFormSkill" placeholder="Filter by title, benefits, companies, skill" autocomplete="off" />
-    </div>
-</div>
-<!--Job Location-->
-    <div class="bucket location">
-        <h4>Location</h4>
-             <div class="field">
-        <input type="text" name="location" id="searchFormLocation" placeholder="Filter by city, state, zip code or country" autocomplete="off" />
             </div>
-        </div>
- <!--Job Position-->
-    <div class="Position">
-        <h5>Position type</h5>
-
-            <select class="browser-default custom-select mb-4" id="searchFormPosition">
-
-      <option value="" disabled>Choose option</option>
-
-      <option selected>Full Time</option>
-
-      <option>Part Time</option>
-
-    </select>
+            <!--Ends modal-body-->
+            <br>
+            <br>
+            <button id='options1'>Continue</button>
 
         </div>
-
-        <div class="row">
-
-            <!-- Message
-
-<div class="form-group">
-
-    <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="Message"></textarea>
-
-</div> -->
-
-        </div>
-
-        <div class="row">
-
-            <!-- Copy -->
-
-            <div class="custom-control custom-checkbox mb-4">
-
-                <input type="checkbox" class="custom-control-input" id="searchFormCopy" />
-
-                <label class="custom-control-label" for="searchFormCopy"><h5>Email a copy</h5>
-                </label>
-
-
+        <!--Ends modal-content-->
 
     </div>
+    <!--Ends myModal-->
 
-  </div>
-      <div class="row">
-        <button type="submit">Search</button>
 
-            </form>
+    <!------------------------------------------------------------------------------------------------>
+
+  <!-- Div for articles -->
+ 
+  
+    <!--Input Field -->
+
+    <div class="row" id="search" class="clearfix">
+
+        
+
+        <div class="col-3" id="searchcolumn">
+            <!-- Form -->
+            <form class="text-center border border-light p-5" action="#!">
+                 <!--Description--> 
+                <p class="h4 mb-4">Job Description</p>
+                 <div class="row">
+                    <input type="text" id="searchFormSkill" class="form-control mb-4" placeholder="Filter by title, benefits, skills" />
+                </div>
+                
+                <!-- Location -->
+                <p class="h4 mb-4">Location</p>
+                <div class="row">
+                    <input type="text" id="searchFormLocation" class="form-control mb-4" placeholder="Filter by city, state, zip code" />
+                </div>
+                
+                <div class="row">
+                    <!-- Kind of Position -->
+                    <label>Position type</label>
+                    <select class="browser-default custom-select mb-4" id="searchFormPosition">
+                        <option value="" disabled>Choose option</option>
+                        <option selected>Full Time</option>
+                        <option>Part Time</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <!-- Copy -->
+                    <div class="custom-control custom-checkbox mb-4">
+                        <input type="checkbox" class="custom-control-input" id="searchFormCopy" />
+                        <label class="custom-control-label" for="searchFormCopy">Email me results</label>
+            </div>
+          </div>
+    
+
+          <div class="row">
+            <!-- Send button -->
+            <button
+              class="btn btn-info btn-block"
+              id="search-btn"
+              type="submit"> Find jobs
+              </button>
+          </div>
+        </form>
+       </div>
+
+        <div class="col-6 displaycards">
+            <!-- display job cards through jquery -->
         </div>
+        <div class="col-3"></div>
+    </div>
+    </div>
+
 
 
 </body>
+
 
 </html>

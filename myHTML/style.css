@@ -40,11 +40,11 @@ button {
 
 #userNavbar {
 
-    align-content: center;
+    
     background-color:lightgreen;
     text-align: center;
-
-    height: 80px;
+    padding: 0; 
+    height: 50px;
     font-size: medium;
     font-weight: bold;
 
@@ -63,9 +63,7 @@ input {
     margin-top: 20px;
     text-align: center;
     margin-left: 30%;
-    margin-right: 30%
-    
-    
-
-    ;
+    margin-right: 30%;
 }
+
+.hover

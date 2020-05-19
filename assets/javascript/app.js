@@ -62,7 +62,7 @@ success: function (newsdata) {
     output += `
         <div class="row">
           <div class="article-news">
-              <img src="${newNews[i].urlToImage}"  alt="${newNews[i].title}"height="200px" width="300px">
+              <img src="${newNews[i].urlToImage}"  alt="${newNews[i].title} "height="250px" width="300px">
                 <div id= "article-words">Title: <a href="${newNews[i].url}" title="${newNews[i].title}">${newNews[i].title}</a>
                 <p><h5><b>Description</b>: ${newNews[i].description}</p><h5>
                 <a href="${newNews[i].url}" class="btn-read">Read More</a>

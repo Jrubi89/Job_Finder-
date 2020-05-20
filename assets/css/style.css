@@ -1,7 +1,7 @@
 body {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    background-color: white;
     font-size: x-large;
+    color: blue;
+    background-color: white;
 }
 
 /*CSS Search Box*/
@@ -62,16 +62,44 @@ h1 {
 }
 
 header {
-    background-image: url('https://i2.wp.com/linkedinheaders.com/wp-content/uploads/2018/02/laptop-working-header.jpg?fit=1584%2C396&ssl=1');
-    height: 250px;
-    text-align: center;
+    background-image: url('https://plattcollege.edu/cms/wp-content/uploads/web-developer-classes-orange-county.jpg');
+    height: 470px;
+    
+    
     padding: 35px;
+    color:white;
+    
 }
 
+#container {
+    
+}
+/* 'https://zdnet4.cbsistatic.com/hub/i/r/2019/04/15/80b9225e-58bb-465f-b17f-d46cfda17fcc/thumbnail/570x322/5c7c926523232080be05c7020ccaa56f/programming-languages-developers-reveal-5caf2b6add173300b8a0f402-1-apr-15-2019-14-56-07-poster.jpg' */
+
+#invite {
+    margin-left: 60px;
+    margin-top:150px;
+    
+}
 h2 {
-    font: bold;
-    font-size: 50px;
-    font-family: fantasy;
+    
+    animation: type 3s steps(28);
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 4px solid black;
+    width:28ch;
+    color: black;
+    
+
+}
+
+@keyframes type {
+    0% {
+        width:0ch;
+    }
+    100%{
+        width: 28ch;
+    }
 }
 
 #myBtn {

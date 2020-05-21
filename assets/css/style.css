@@ -1,207 +1,206 @@
 body {
-    font-size: x-large;
-    
-
-
-
+  font-size: x-large;
 }
-    
-
 
 /*CSS Search Box*/
 
 #searchcolumn {
-    padding-left: 20px;
-    padding-right: 20px;
-    font-size: 20px; 
-    float: left;
-    font-family: 'Times New Roman', Times, serif;
-    margin-top: 34px;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    margin-right: 40px;
-    margin-left: 40px;
-    text-align-last: left;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 20px;
+  float: left;
+  font-family: "Times New Roman", Times, serif;
+  margin-top: 34px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin-right: 40px;
+  margin-left: 40px;
+  text-align-last: left;
 }
-.field input::placeholder, #searchFormPosition {
-    color: #aaa;
-    font-size: small;
-    font-weight:bold;
-    font-family: 'Times New Roman', Times, serif;
-    font-size:14px;   
+.field input::placeholder,
+#searchFormPosition {
+  color: #aaa;
+  font-size: small;
+  font-weight: bold;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 14px;
 }
 
 #page {
-    width: 100%;
-    margin-top: -2px;
-    margin-left: -4px;
-    padding: 10px 28px 15px 4px;
-    color: black;
+  width: 100%;
+  margin-top: -2px;
+  margin-left: -4px;
+  padding: 10px 28px 15px 4px;
+  color: black;
 }
 
 #search-btn {
-    background:#869ca9;
-    padding:0 18px;
-    font-weight:bold;
-    font-family: 'Times New Roman', Times, serif;
-    font-size:14px;
-    text-decoration-color: #fff;
-    box-sizing: initial;
+  background: #869ca9;
+  padding: 0 18px;
+  font-weight: bold;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 14px;
+  text-decoration-color: #fff;
+  box-sizing: initial;
 }
 
 h4,
 h5,
 #searchFormCopy {
-    color: black;
+  color: black;
 }
-
-
 
 /* ------------------Modal/header CSS-------------- */
 
 h1 {
-
-    font-size: 50px;
-    text-align: center;
+  font-size: 50px;
+  text-align: center;
 }
 
 header {
-    background-image: url('https://plattcollege.edu/cms/wp-content/uploads/web-developer-classes-orange-county.jpg');
-    height: 470px;
-    
-    
-    padding: 35px;
-    color:white;
-    
+  background-image: url("https://plattcollege.edu/cms/wp-content/uploads/web-developer-classes-orange-county.jpg");
+  height: 470px;
+
+  padding: 35px;
+  color: white;
 }
 
-.container {
-    
-    height: 300px;
-    background: black;
-    color: white;
-    margin-top: 10px;
-    width: 600px;
-    padding-top: 10px;
-    
-   
-   
-   
-   
+.bkground {
+    text-align: center;
 }
-.bkground{
-        background-image: url('https://st4.depositphotos.com/11351024/21169/i/1600/depositphotos_211695530-stock-photo-white-circuit-board-seamless-pattern.jpg');
-    padding-top: 10px;
-    height: 340px;
-
-}
-  
-    
- 
-   
-   
-   
-    
-
 
 /* 'https://zdnet4.cbsistatic.com/hub/i/r/2019/04/15/80b9225e-58bb-465f-b17f-d46cfda17fcc/thumbnail/570x322/5c7c926523232080be05c7020ccaa56f/programming-languages-developers-reveal-5caf2b6add173300b8a0f402-1-apr-15-2019-14-56-07-poster.jpg' */
 
 #invite {
-    margin-left: 60px;
-    margin-top:150px;
-    
+  margin-left: 60px;
+  margin-top: 150px;
 }
 h2 {
-    
-    animation: type 3s steps(28);
-    overflow: hidden;
-    white-space: nowrap;
-    border-right: 4px solid black;
-    width:28ch;
-    color: black;
-    
-
+  animation: type 3s steps(28);
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 4px solid black;
+  width: 28ch;
+  color: black;
 }
 
 @keyframes type {
-    0% {
-        width:0ch;
-    }
-    100%{
-        width: 28ch;
-    }
+  0% {
+    width: 0ch;
+  }
+  100% {
+    width: 28ch;
+  }
 }
 
 #myBtn {
-    background: lightblue;
-    margin-top: 10px;
-    
-    
+  background: lightblue;
+  margin-top: 10px;
 }
 
 .modal {
-    z-index: 1;
-    /* Sit on top */
-    padding-top: 100px;
-    /* Location of the box */
-    width: 100%;
-    /* Full width */
-    height: 100%;
-    /* Full height */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
 }
-
 
 /* Modal Content */
 
 .modal-content {
-    background-color: white;
-    margin: auto;
-    padding-bottom: 70px;
-    border: 2px solid blue;
-    width: 500px;
+  background-color: white;
+  margin: auto;
+  padding-bottom: 70px;
+  border: 2px solid blue;
+  width: 500px;
 }
-
 
 /* The Close Button */
 
 .close {
-    color: red;
-    float: left;
-    font-size: 50px;
-    font-weight: bold;
-    padding-left: 30px;
+  color: red;
+  float: left;
+  font-size: 50px;
+  font-weight: bold;
+  padding-left: 30px;
 }
 
 .close:hover,
 .close:focus {
-    color: #000;
-    cursor: pointer;
+  color: #000;
+  cursor: pointer;
 }
 
 #options1 {
-    color: black;
-    background: aqua;
-    margin-right: 200px;
-    margin-left: 180px;
-    width: 120px;
+  color: black;
+  background: aqua;
+  margin-right: 200px;
+  margin-left: 180px;
+  width: 120px;
 }
 
 .input-group-prepend {
-    padding-left: 70px;
-    padding-top: 20px;
+  padding-left: 70px;
+  padding-top: 20px;
 }
 
 .article-news {
-    margin-left: 75px;
-    height: 390px;
-    padding: 50px;
-    width: 350px;
-
-    
-   
+  margin-left: 75px;
+  height: 390px;
+  padding: 50px;
+  width: 350px;
 }
 
 #article-words {
-    width: 300px;
-    height: 200px;
+  width: 300px;
+  height: 200px;
+}
+
+/*Resources and traing buttons*/
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: rgb(76, 155, 175);
+  color: white;
+  padding: 20px;
+  font-size: 18px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: lightblue;
+}
+
+.logo {
+  width: 100%;
+  height: 200px;
 }

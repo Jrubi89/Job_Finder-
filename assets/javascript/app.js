@@ -1,5 +1,9 @@
 $(document).ready(function() {
     $("#search").hide();
+    $("#userGreeting").hide();
+
+
+    let userName = window.localStorage.getItem("username")
 
     // Get the modal
     var modal = document.getElementById("myModal");
@@ -38,6 +42,15 @@ $(document).ready(function() {
         $(".modal-content").hide();
         $("#newsResults").hide();
         $("#intro").hide();
+        $("#userGreeting").show();
+
+
+        let personsName = $("#userName").val()
+        window.localStorage.setItem("username", personsName)
+
+        console.log("Welcome, " + personsName)
+
+        $("#userGreeting").append("Welcome, " + personsName)
     };
 
     let url3 =

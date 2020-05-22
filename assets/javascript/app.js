@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
     $("#search").hide();
 
     // Get the modal
@@ -8,21 +7,19 @@ $(document).ready(function() {
     // Get the button that opens the modal
     var btn = document.getElementById("myBtn");
 
-    // When the user clicks the button, open the modal 
+    // When the user clicks the button, open the modal
 
-    btn.onclick = function () {
-
+    btn.onclick = function() {
         modal.style.display = "block";
-    }
+    };
 
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
     // When the user clicks on <span> (x), close the modal
 
     span.onclick = function() {
-
         modal.style.display = "none";
-    }
+    };
 
     // When the user clicks anywhere outside of the modal, close it
 
@@ -30,36 +27,33 @@ $(document).ready(function() {
         if (event.target == modal) {
             modal.style.display = "none";
         }
-    }
+    };
 
     //Adding click actions for "Continue"
 
     var button = document.getElementById("options1");
-
 
     button.onclick = function() {
         $("#search").show();
         $(".modal-content").hide();
         $("#newsResults").hide();
         $("#intro").hide();
-    }
+    };
 
-    let url3 = 'http://newsapi.org/v2/top-headlines?country=us&category=technology&pagesize=3&page=1&apiKey=fa998b4e27f24b81880beb0cb16f85b6'
-    
+    let url3 =
+        "http://newsapi.org/v2/top-headlines?country=us&category=technology&pagesize=3&page=1&apiKey=fa998b4e27f24b81880beb0cb16f85b6";
 
-$.ajax({
-  url: url3,
-  method: "GET",
-  dataType: "JSON",
+    $.ajax({
+        url: url3,
+        method: "GET",
+        dataType: "JSON",
 
+        success: function(newsdata) {
+            let output = "";
+            let newNews = newsdata.articles;
 
-  
-success: function (newsdata) {
-    let output = "";
-    let newNews = newsdata.articles;
-   
-   for (var i in newNews) {
-    output += `
+            for (var i in newNews) {
+                output += `
         <div class="row">
           <div class="article-news">
               <img src="${newNews[i].urlToImage}"  alt="${newNews[i].title} "height="250px" width="300px">
@@ -68,16 +62,10 @@ success: function (newsdata) {
                 <a href="${newNews[i].url}" class="btn-read">Read More</a>
           </div>
         </div>   `;
-  }
-    $("#newsResults").html(output);
-    
-
-},  //ends newsdata
-}) //ends ajax
-
-
-
-
+            }
+            $("#newsResults").html(output);
+        }, //ends newsdata
+    }); //ends ajax
 }); // Ends document ready
 
 //---------------NEWS ARTICLES----------------------------------------------
@@ -234,4 +222,204 @@ function callWagesAPI(searchLocation, searchPosition) {
         "?training=false&interest=true&videos=true&tasks=true&dwas=false&wages=true&alternateOnetTitles=false&projectedEmployment=true&ooh=true&stateLMILinks=true&relatedOnetTitles=true&skills=true&knowledge=true&ability=true&trainingPrograms=true";
     console.log(wqueryURL);
 
+    $.ajax({
+        url: wqueryURL,
+        method: "GET",
+        async: false,
+        headers: { Authorization: "Bearer " + token },
+        error: function(err) {
+            console.log(err);
+            alert("Jobs requested could not be returned");
+        },
+    }).then(function(response) {
+        //return the response
+        debugger;
+        //reset divs and the global variables
+        console.log(response);
+        //create the wage data set
+        nationalwagelist =
+            response["OccupationDetail"][0]["Wages"]["NationalWagesList"];
+        console.log(nationalwagelist);
+        statewageList = response["OccupationDetail"][0]["Wages"]["StateWagesList"];
+        console.log(statewageList);
+        wageyear = response["OccupationDetail"][0]["Wages"]["WageYear"];
+        console.log(wageyear);
+        hourly_dataset = [];
+        annual_dataset = [];
+
+        if (nationalwagelist[0]["RateType"] === "Annual") {
+            //annual dataset
+            if (statewageList[0]["RateType"] === "Annual") {
+                annual_dataset.push(parseFloat(nationalwagelist[0]["Pct10"]));
+                annual_dataset.push(parseFloat(statewageList[0]["Pct10"]));
+                annual_dataset.push(parseFloat(nationalwagelist[0]["Pct25"]));
+                annual_dataset.push(parseFloat(statewageList[0]["Pct25"]));
+                annual_dataset.push(parseFloat(nationalwagelist[0]["Median"]));
+                annual_dataset.push(parseFloat(statewageList[0]["Median"]));
+                annual_dataset.push(parseFloat(nationalwagelist[0]["Pct75"]));
+                annual_dataset.push(parseFloat(statewageList[0]["Pct75"]));
+            } else {
+                //use element 1
+                annual_dataset.push(parseFloat(nationalwagelist[0]["Pct10"]));
+                annual_dataset.push(parseFloat(statewageList[1]["Pct10"]));
+                annual_dataset.push(parseFloat(nationalwagelist[0]["Pct25"]));
+                annual_dataset.push(parseFloat(statewageList[1]["Pct25"]));
+                annual_dataset.push(parseFloat(nationalwagelist[0]["Median"]));
+                annual_dataset.push(parseFloat(statewageList[1]["Median"]));
+                annual_dataset.push(parseFloat(nationalwagelist[0]["Pct75"]));
+                annual_dataset.push(parseFloat(statewageList[1]["Pct75"]));
+            }
+        } else {
+            //Hourly
+            if (statewageList[0]["RateType"] === "Hourly") {
+                hourly_dataset.push(parseFloat(nationalwagelist[0]["Pct10"]));
+                hourly_dataset.push(parseFloat(statewageList[0]["Pct10"]));
+                hourly_dataset.push(parseFloat(nationalwagelist[0]["Pct25"]));
+                hourly_dataset.push(parseFloat(statewageList[0]["Pct25"]));
+                hourly_dataset.push(parseFloat(nationalwagelist[0]["Median"]));
+                hourly_dataset.push(parseFloat(statewageList[0]["Median"]));
+                hourly_dataset.push(parseFloat(nationalwagelist[0]["Pct75"]));
+                hourly_dataset.push(parseFloat(statewageList[0]["Pct75"]));
+            } else {
+                //use element 1
+                hourly_dataset.push(parseFloat(nationalwagelist[0]["Pct10"]));
+                hourly_dataset.push(parseFloat(statewageList[1]["Pct10"]));
+                hourly_dataset.push(parseFloat(nationalwagelist[0]["Pct25"]));
+                hourly_dataset.push(parseFloat(statewageList[1]["Pct25"]));
+                hourly_dataset.push(parseFloat(nationalwagelist[0]["Median"]));
+                hourly_dataset.push(parseFloat(statewageList[1]["Median"]));
+                hourly_dataset.push(parseFloat(nationalwagelist[0]["Pct75"]));
+                hourly_dataset.push(parseFloat(statewageList[1]["Pct75"]));
+            }
+        }
+        //hourly
+        if (nationalwagelist[1]["RateType"] === "Annual") {
+            //annual dataset
+            if (statewageList[0]["RateType"] === "Annual") {
+                annual_dataset.push(parseFloat(nationalwagelist[1]["Pct10"]));
+                annual_dataset.push(parseFloat(statewageList[0]["Pct10"]));
+                annual_dataset.push(parseFloat(nationalwagelist[1]["Pct25"]));
+                annual_dataset.push(parseFloat(statewageList[0]["Pct25"]));
+                annual_dataset.push(parseFloat(nationalwagelist[1]["Median"]));
+                annual_dataset.push(parseFloat(statewageList[0]["Median"]));
+                annual_dataset.push(parseFloat(nationalwagelist[1]["Pct75"]));
+                annual_dataset.push(parseFloat(statewageList[0]["Pct75"]));
+            } else {
+                //use element 1
+                annual_dataset.push(parseFloat(nationalwagelist[1]["Pct10"]));
+                annual_dataset.push(parseFloat(statewageList[1]["Pct10"]));
+                annual_dataset.push(parseFloat(nationalwagelist[1]["Pct25"]));
+                annual_dataset.push(parseFloat(statewageList[1]["Pct25"]));
+                annual_dataset.push(parseFloat(nationalwagelist[1]["Median"]));
+                annual_dataset.push(parseFloat(statewageList[1]["Median"]));
+                annual_dataset.push(parseFloat(nationalwagelist[1]["Pct75"]));
+                annual_dataset.push(parseFloat(statewageList[1]["Pct75"]));
+            }
+        } else {
+            //hourly
+            if (statewageList[0]["RateType"] === "Hourly") {
+                hourly_dataset.push(parseFloat(nationalwagelist[1]["Pct10"]));
+                hourly_dataset.push(parseFloat(statewageList[0]["Pct10"]));
+                hourly_dataset.push(parseFloat(nationalwagelist[1]["Pct25"]));
+                hourly_dataset.push(parseFloat(statewageList[0]["Pct25"]));
+                hourly_dataset.push(parseFloat(nationalwagelist[1]["Median"]));
+                hourly_dataset.push(parseFloat(statewageList[0]["Median"]));
+                hourly_dataset.push(parseFloat(nationalwagelist[1]["Pct75"]));
+                hourly_dataset.push(parseFloat(statewageList[0]["Pct75"]));
+            } else {
+                //use element 1
+                hourly_dataset.push(parseFloat(nationalwagelist[1]["Pct10"]));
+                hourly_dataset.push(parseFloat(statewageList[1]["Pct10"]));
+                hourly_dataset.push(parseFloat(nationalwagelist[1]["Pct25"]));
+                hourly_dataset.push(parseFloat(statewageList[1]["Pct25"]));
+                hourly_dataset.push(parseFloat(nationalwagelist[1]["Median"]));
+                hourly_dataset.push(parseFloat(statewageList[1]["Median"]));
+                hourly_dataset.push(parseFloat(nationalwagelist[1]["Pct75"]));
+                hourly_dataset.push(parseFloat(statewageList[1]["Pct75"]));
+            }
+        }
+        console.log("annual_dataset");
+        console.log(annual_dataset);
+        console.log("hourly_dataset");
+        console.log(hourly_dataset);
+
+        //------------charting ----------------------------------------
+        if (hourly_dataset.length > 1) {
+            var svgWidth = 400;
+            var svgHeight = 400;
+            var percentDisplay = 0;
+            var amtCutOff = 0;
+            var svg = d3.select("svg");
+            var margin = 100;
+            var width = svgWidth - margin;
+            var height = svgHeight - margin;
+
+            //find the proportion for the gragh heights
+            var maxWage = Math.max.apply(Math, hourly_dataset);
+            var minWage = Math.min.apply(Math, hourly_dataset);
+
+            var amtCutOff = 0;
+            if (maxWage - minWage >= 0.9 * svgHeight) {
+                console.log("Disparity is too large for clear graphs");
+                amtCutOff = Math.ceil(minWage / 2);
+            }
+
+            var percentDisplay = svgHeight / maxWage;
+
+            console.log("percent Display", percentDisplay);
+            console.log("amtCutOff Display", amtCutOff);
+
+            // var svg = d3.select("svg"),
+            //     margin = 20,
+            //     width = svg.attr("width") - margin,
+            //     height = svg.attr("height") - margin;
+
+            // var xScale = d3.scaleBand().range([0, width]).padding(0.4),
+            //     yScale = d3.scaleLinear().range([height, 0]);
+
+            // var g = svg
+            //     .append("g")
+            //     .attr("transform", "translate(" + 100 + "," + 100 + ")");
+            var svg = d3
+                .select("svg")
+                .attr("viewBox", `0 0 400 300`)
+                .attr("class", "bar-chart");
+
+            var dataset = hourly_dataset;
+
+            var barPadding = 10;
+            var barWidth = svgWidth / dataset.length;
+
+            var barChart = svg
+                .selectAll("rect")
+                .data(dataset)
+                .enter()
+                .append("rect")
+                .attr("y", function(d) {
+                    return svgHeight - (d * percentDisplay - amtCutOff);
+                })
+                .attr("height", function(d) {
+                    return d * percentDisplay - amtCutOff;
+                })
+                .attr("width", barWidth - barPadding)
+                .attr("transform", function(d, i) {
+                    var translate = [barWidth * i, 0];
+                    return "translate(" + translate + ")";
+                });
+        } //check if data is available
+    }); //end of function response
+}
+
+//actions to be carried out when the search button is hit
+$(document).on("click", "#wages-search-btn", function() {
+    console.log("display-wageinfo-section");
+    //get the search parameters
+    const searchLocation = $("#search-region-wage").val().trim();
+    const searchPosition = $("#search-position-wage")
+        .children("option:selected")
+        .attr("value");
+
+    console.log(searchLocation, searchPosition);
+
+    callWagesAPI(searchLocation, searchPosition);
 });

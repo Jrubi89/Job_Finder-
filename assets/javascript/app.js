@@ -82,72 +82,89 @@ success: function (newsdata) {
 
 //---------------NEWS ARTICLES----------------------------------------------
 
-
-
-
-//------------------------------------------------------------------------------------------------
+//----------------------JOB SEARCH API AND RESULTS------------------------------
 
 var globalJobs = 0;
 
-function renderJobCards(iCompany, iCUrl, iUrl, iCreated_at, iDescription, iLocation, iTitle) {
-    var cardDiv = '<div class="row"><div class="card w-80"><div class="card-header"><a target="_blank" rel="noopener noreferrer" href = "' + iCUrl + '"class = "card-link"><h3 class="card-title">' + iCompany + '</h3></a></div><div class="card-body"><h3>' + iTitle + '</h3><h3>' + iLocation + '</h3><p class="card-text">' + iDescription.substring(0, 500) + '</p><form action="' + iUrl + '" target="_blank"><button type="submit">Read more</button></form></div><div class="card-footer">Created on: ' + iCreated_at + ' </div></div>'
-    var breakDiv = '<div class="row"><br/></div>'
+//creates the job cards based on the api response
+function renderJobCards(
+    iCompany,
+    iCUrl,
+    iUrl,
+    iCreated_at,
+    iDescription,
+    iLocation,
+    iTitle
+) {
+    var cardDiv =
+        '<div class="row"><div class="card w-80"><div class="card-header"><a target="_blank" rel="noopener noreferrer" href = "' +
+        iCUrl +
+        '"class = "card-link"><h3 class="card-title">' +
+        iCompany +
+        '</h3></a></div><div class="card-body"><h3>' +
+        iTitle +
+        "</h3><h3>" +
+        iLocation +
+        '</h3><p class="card-text">' +
+        iDescription.substring(0, 500) +
+        '</p><form action="' +
+        iUrl +
+        '" target="_blank"><button type="submit">Read more</button></form></div><div class="card-footer">Created on: ' +
+        iCreated_at +
+        " </div></div>";
+    var breakDiv = '<div class="row"><br/></div>';
     $(".displaycards").append(cardDiv);
     $(".displaycards").append(breakDiv);
 }
 
+//function to remove the spaces in the input field
 function checkandReplaceSpaces(stringToFormat) {
-    stringToFormat = stringToFormat.trim()
-    stringToFormat.replace(/\s/g, "+")
-    console.log(stringToFormat)
-    return stringToFormat
+    stringToFormat = stringToFormat.trim();
+    stringToFormat.replace(/\s/g, "+");
+    console.log(stringToFormat);
+    return stringToFormat;
 }
 
-//RBDfunction zipcodeToLocation(stringToCheck) {
+//TBDfunction zipcodeToLocation(stringToCheck) {
 // }
 
+//ajax call to the API
 function callAPI(skillName, jobLocation, fullTime, offset) {
     // Constructing a URL to search for the job
     var queryURL =
-        "https://jobs.github.com/positions.json?"
-
+        "https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?";
 
     //TBD get job Locations from zipcodes
     //TBDjoblocation = zipcodeToLocation(joblocation)
     if (jobLocation) {
-        jobLocation = checkandReplaceSpaces(jobLocation)
+        jobLocation = checkandReplaceSpaces(jobLocation);
         if (queryURL[queryURL.length - 1] === "?") {
-            queryURL = queryURL + "location=" + jobLocation
+            queryURL = queryURL + "location=" + jobLocation;
         } else {
-            queryURL = queryURL + "&location=" + jobLocation
-
+            queryURL = queryURL + "&location=" + jobLocation;
         }
     }
     if (skillName) {
         if (queryURL[queryURL.length - 1] === "?") {
-            queryURL = queryURL + "description=" + skillName
+            queryURL = queryURL + "description=" + skillName;
         } else {
-            queryURL = queryURL + "&description=" + skillName
-
+            queryURL = queryURL + "&description=" + skillName;
         }
     }
-    var fulltime_bool = false
+    var fulltime_bool = false;
     if (fullTime) {
         if (fullTime === "Full Time") {
-            fulltime_bool = true
+            fulltime_bool = true;
         }
     }
     if (queryURL[queryURL.length - 1] === "?") {
-        queryURL = queryURL + "full_time=" + fulltime_bool
+        queryURL = queryURL + "full_time=" + fulltime_bool;
     } else {
-        queryURL = queryURL + "&full_time=" + fulltime_bool
-
+        queryURL = queryURL + "&full_time=" + fulltime_bool;
     }
     queryURL = queryURL + "&page=" + offset;
 
-
     //need a try catch block for errors
-
 
     console.log(queryURL);
 
@@ -170,7 +187,7 @@ function callAPI(skillName, jobLocation, fullTime, offset) {
         console.log(requiredArray.length);
         //reset divs and the global variables
         $(".displaycards").empty();
-        var breakDiv = '<div class="row"><br/></div>'
+        var breakDiv = '<div class="row"><br/></div>';
         $(".displaycards").append(breakDiv);
         for (var i = 0; i < requiredArray.length; i++) {
             renderJobCards(
@@ -183,25 +200,38 @@ function callAPI(skillName, jobLocation, fullTime, offset) {
                 requiredArray[i].title
             );
             globalJobs = globalJobs + 1;
-
         }
-
-
     });
+}
 
-};
-
-
+//actions to be carried out when the search button is hit
 $(document).on("click", "#search-btn", function() {
     console.log("display-jobs-section");
-    debugger
     //get the search parameters
     const searchSkill = $("#searchFormSkill").val().trim();
     const searchLocation = $("#searchFormLocation").val().trim();
-    const fullTime = $("#searchFormPosition").children("option:selected").val()
+    const fullTime = $("#searchFormPosition").children("option:selected").val();
 
-    console.log(searchSkill, searchLocation, fullTime)
+    console.log(searchSkill, searchLocation, fullTime);
 
     callAPI(searchSkill, searchLocation, fullTime);
+});
+
+// ------------------ END OF JOB API CALL ----------------------------
+
+// ------------------ CALL FOR WAGE INFORMATION -------------------
+//ajax call to the API
+function callWagesAPI(searchLocation, searchPosition) {
+    // Constructing a URL to search for the job
+    debugger;
+    const token =
+        "4+0CUzMzAuJK0eSUvLwwqUgrm5Lb2JhAVKGlttonnKTHtxhmnAk1h1FqAOsR1ZY0nVmNTqMh3ZFyEg745ofzuA==";
+    var wqueryURL =
+        "https://api.careeronestop.org/v1/occupation/YVWz2wiZiFxhjWG/" +
+        searchPosition +
+        "/" +
+        searchLocation +
+        "?training=false&interest=true&videos=true&tasks=true&dwas=false&wages=true&alternateOnetTitles=false&projectedEmployment=true&ooh=true&stateLMILinks=true&relatedOnetTitles=true&skills=true&knowledge=true&ability=true&trainingPrograms=true";
+    console.log(wqueryURL);
 
 });

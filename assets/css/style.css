@@ -9,10 +9,22 @@ body {
 
 /*CSS Search Box*/
 
-#searchcolumn,
-#displaywageinfo {
+#searchcolumn{
+  padding-left: 60px;
+  padding-right: 10px;
+  font-size: 20px;
+  float: left;
+  font-family: 'Times New Roman', Times, serif;
+  margin-top: 34px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-align-last: left;
+  
+}
+
+#displaywageinfo{
     padding-left: 10px;
-    padding-right: 10px;
+    padding-right: 60px;
     font-size: 20px;
     float: left;
     font-family: 'Times New Roman', Times, serif;
@@ -20,7 +32,6 @@ body {
     padding-top: 50px;
     padding-bottom: 50px;
     text-align-last: left;
-    display: flex;
 }
 
 .field input::placeholder,

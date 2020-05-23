@@ -175,8 +175,18 @@ function callAPI(skillName, jobLocation, fullTime, offset) {
         async: false,
         error: function(err) {
             console.log(err);
+            $(".displaycards").empty();
+            var errcardDiv =
+                '<div class="row"><div class="card w-80"><div class="card-header"><h3 class="card-title">' +
+                'Apologies : We have a problem' +
+                '</h3></a></div><div class="card-body"><p class="card-text">' +
+                'This is a slow day. Our App is still thinking! Please try again!' +
+                '</p></div></div>';
+            var breakDiv = '<div class="row"><br/></div>';
+            $(".displaycards").append(breakDiv);
+            $(".displaycards").append(errcardDiv);
             //alert("Jobs requested could not be returned");
-        },
+        }
     }).then(function(response) {
         //return the response
 
@@ -201,6 +211,17 @@ function callAPI(skillName, jobLocation, fullTime, offset) {
                 requiredArray[i].title
             );
             globalJobs = globalJobs + 1;
+        }
+        if (requiredArray.length === 0) {
+            var cardDiv =
+                '<div class="row"><div class="card w-80"><div class="card-header"><h3 class="card-title">' +
+                'Apologies : ' +
+                '</h3></a></div><div class="card-body"><p class="card-text">' +
+                'There are no jobs posted for ' + skillName + ' in ' + jobLocation + '. Please try again for another location or skill set!' +
+                '</p></div></div>';
+            var breakDiv = '<div class="row"><br/></div>';
+            $(".displaycards").append(breakDiv);
+            $(".displaycards").append(cardDiv);
         }
     });
 }
@@ -431,6 +452,7 @@ function callWagesAPI(searchLocation, searchPosition) {
 
         //------------charting ----------------------------------------
         if (hourly_dataset.length > 1) {
+            $('#d3id').empty()
             var models = hourly_dataset;
 
             var container = d3.select('#d3id'),
@@ -451,8 +473,7 @@ function callWagesAPI(searchLocation, searchPosition) {
 
             var svg = container
                 .append("svg")
-                .attr("width", width)
-                .attr("height", height)
+                .attr("viewBox", `0 0 400 300`)
                 .append("g")
                 .attr("transform", `translate(${margin.left},${margin.top})`);
 
@@ -511,6 +532,13 @@ function callWagesAPI(searchLocation, searchPosition) {
             svg.append("g")
                 .attr("class", "y axis")
                 .call(yAxis);
+            // Handmade legend
+            svg.append("circle").attr("cx", 20).attr("cy", 10).attr("r", 6).style("fill", "blue")
+            svg.append("circle").attr("cx", 20).attr("cy", 30).attr("r", 6).style("fill", "red")
+            svg.append("text").attr("x", 90).attr("y", 10).text("National").style("font-size", "15px").attr("alignment-baseline", "middle")
+            svg.append("text").attr("x", 70).attr("y", 30).text("State").style("font-size", "15px").attr("alignment-baseline", "middle")
+
+
         } //check if data is available
     }); //end of function response
 }

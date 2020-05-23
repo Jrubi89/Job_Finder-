@@ -79,7 +79,7 @@ $(document).ready(function() {
             $("#newsResults").html(output);
         }, //ends newsdata
     }); //ends ajax
-
+}); // Ends document ready
 
 //---------------NEWS ARTICLES----------------------------------------------
 
@@ -263,92 +263,165 @@ function callWagesAPI(searchLocation, searchPosition) {
         if (nationalwagelist[0]["RateType"] === "Annual") {
             //annual dataset
             if (statewageList[0]["RateType"] === "Annual") {
-                annual_dataset.push(parseFloat(nationalwagelist[0]["Pct10"]));
-                annual_dataset.push(parseFloat(statewageList[0]["Pct10"]));
-                annual_dataset.push(parseFloat(nationalwagelist[0]["Pct25"]));
-                annual_dataset.push(parseFloat(statewageList[0]["Pct25"]));
-                annual_dataset.push(parseFloat(nationalwagelist[0]["Median"]));
-                annual_dataset.push(parseFloat(statewageList[0]["Median"]));
-                annual_dataset.push(parseFloat(nationalwagelist[0]["Pct75"]));
-                annual_dataset.push(parseFloat(statewageList[0]["Pct75"]));
+                annual_dataset = [{
+                    "model_name": "Pct10",
+                    "National": parseFloat(nationalwagelist[0]["Pct10"]),
+                    "State": parseFloat(statewageList[0]["Pct10"])
+                }, {
+                    "model_name": "Pct25",
+                    "National": parseFloat(nationalwagelist[0]["Pct25"]),
+                    "State": parseFloat(statewageList[0]["Pct25"])
+                }, {
+                    "model_name": "Median",
+                    "National": parseFloat(nationalwagelist[0]["Median"]),
+                    "State": parseFloat(statewageList[0]["Median"])
+                }, {
+                    "model_name": "Pct75",
+                    "National": parseFloat(nationalwagelist[0]["Pct75"]),
+                    "State": parseFloat(statewageList[0]["Pct75"])
+                }];
             } else {
                 //use element 1
-                annual_dataset.push(parseFloat(nationalwagelist[0]["Pct10"]));
-                annual_dataset.push(parseFloat(statewageList[1]["Pct10"]));
-                annual_dataset.push(parseFloat(nationalwagelist[0]["Pct25"]));
-                annual_dataset.push(parseFloat(statewageList[1]["Pct25"]));
-                annual_dataset.push(parseFloat(nationalwagelist[0]["Median"]));
-                annual_dataset.push(parseFloat(statewageList[1]["Median"]));
-                annual_dataset.push(parseFloat(nationalwagelist[0]["Pct75"]));
-                annual_dataset.push(parseFloat(statewageList[1]["Pct75"]));
+                annual_dataset = [{
+                    "model_name": "Pct10",
+                    "National": parseFloat(nationalwagelist[0]["Pct10"]),
+                    "State": parseFloat(statewageList[1]["Pct10"])
+                }, {
+                    "model_name": "Pct25",
+                    "National": parseFloat(nationalwagelist[0]["Pct25"]),
+                    "State": parseFloat(statewageList[1]["Pct25"])
+                }, {
+                    "model_name": "Median",
+                    "National": parseFloat(nationalwagelist[0]["Median"]),
+                    "State": parseFloat(statewageList[1]["Median"])
+                }, {
+                    "model_name": "Pct75",
+                    "National": parseFloat(nationalwagelist[0]["Pct75"]),
+                    "State": parseFloat(statewageList[1]["Pct75"])
+                }];
             }
         } else {
             //Hourly
             if (statewageList[0]["RateType"] === "Hourly") {
-                hourly_dataset.push(parseFloat(nationalwagelist[0]["Pct10"]));
-                hourly_dataset.push(parseFloat(statewageList[0]["Pct10"]));
-                hourly_dataset.push(parseFloat(nationalwagelist[0]["Pct25"]));
-                hourly_dataset.push(parseFloat(statewageList[0]["Pct25"]));
-                hourly_dataset.push(parseFloat(nationalwagelist[0]["Median"]));
-                hourly_dataset.push(parseFloat(statewageList[0]["Median"]));
-                hourly_dataset.push(parseFloat(nationalwagelist[0]["Pct75"]));
-                hourly_dataset.push(parseFloat(statewageList[0]["Pct75"]));
+
+                hourly_dataset = [{
+                    "model_name": "Pct10",
+                    "National": parseFloat(nationalwagelist[0]["Pct10"]),
+                    "State": parseFloat(statewageList[0]["Pct10"])
+                }, {
+                    "model_name": "Pct25",
+                    "National": parseFloat(nationalwagelist[0]["Pct25"]),
+                    "State": parseFloat(statewageList[0]["Pct25"])
+                }, {
+                    "model_name": "Median",
+                    "National": parseFloat(nationalwagelist[0]["Median"]),
+                    "State": parseFloat(statewageList[0]["Median"])
+                }, {
+                    "model_name": "Pct75",
+                    "National": parseFloat(nationalwagelist[0]["Pct75"]),
+                    "State": parseFloat(statewageList[0]["Pct75"])
+                }];
             } else {
                 //use element 1
-                hourly_dataset.push(parseFloat(nationalwagelist[0]["Pct10"]));
-                hourly_dataset.push(parseFloat(statewageList[1]["Pct10"]));
-                hourly_dataset.push(parseFloat(nationalwagelist[0]["Pct25"]));
-                hourly_dataset.push(parseFloat(statewageList[1]["Pct25"]));
-                hourly_dataset.push(parseFloat(nationalwagelist[0]["Median"]));
-                hourly_dataset.push(parseFloat(statewageList[1]["Median"]));
-                hourly_dataset.push(parseFloat(nationalwagelist[0]["Pct75"]));
-                hourly_dataset.push(parseFloat(statewageList[1]["Pct75"]));
+                hourly_dataset = [{
+                    "model_name": "Pct10",
+                    "National": parseFloat(nationalwagelist[0]["Pct10"]),
+                    "State": parseFloat(statewageList[1]["Pct10"])
+                }, {
+                    "model_name": "Pct25",
+                    "National": parseFloat(nationalwagelist[0]["Pct25"]),
+                    "State": parseFloat(statewageList[1]["Pct25"])
+                }, {
+                    "model_name": "Median",
+                    "National": parseFloat(nationalwagelist[0]["Median"]),
+                    "State": parseFloat(statewageList[1]["Median"])
+                }, {
+                    "model_name": "Pct75",
+                    "National": parseFloat(nationalwagelist[0]["Pct75"]),
+                    "State": parseFloat(statewageList[1]["Pct75"])
+                }];
             }
         }
         //hourly
         if (nationalwagelist[1]["RateType"] === "Annual") {
             //annual dataset
             if (statewageList[0]["RateType"] === "Annual") {
-                annual_dataset.push(parseFloat(nationalwagelist[1]["Pct10"]));
-                annual_dataset.push(parseFloat(statewageList[0]["Pct10"]));
-                annual_dataset.push(parseFloat(nationalwagelist[1]["Pct25"]));
-                annual_dataset.push(parseFloat(statewageList[0]["Pct25"]));
-                annual_dataset.push(parseFloat(nationalwagelist[1]["Median"]));
-                annual_dataset.push(parseFloat(statewageList[0]["Median"]));
-                annual_dataset.push(parseFloat(nationalwagelist[1]["Pct75"]));
-                annual_dataset.push(parseFloat(statewageList[0]["Pct75"]));
+                annual_dataset = [{
+                    "model_name": "Pct10",
+                    "National": parseFloat(nationalwagelist[1]["Pct10"]),
+                    "State": parseFloat(statewageList[0]["Pct10"])
+                }, {
+                    "model_name": "Pct25",
+                    "National": parseFloat(nationalwagelist[1]["Pct25"]),
+                    "State": parseFloat(statewageList[0]["Pct25"])
+                }, {
+                    "model_name": "Median",
+                    "National": parseFloat(nationalwagelist[1]["Median"]),
+                    "State": parseFloat(statewageList[0]["Median"])
+                }, {
+                    "model_name": "Pct75",
+                    "National": parseFloat(nationalwagelist[1]["Pct75"]),
+                    "State": parseFloat(statewageList[0]["Pct75"])
+                }];
             } else {
-                //use element 1
-                annual_dataset.push(parseFloat(nationalwagelist[1]["Pct10"]));
-                annual_dataset.push(parseFloat(statewageList[1]["Pct10"]));
-                annual_dataset.push(parseFloat(nationalwagelist[1]["Pct25"]));
-                annual_dataset.push(parseFloat(statewageList[1]["Pct25"]));
-                annual_dataset.push(parseFloat(nationalwagelist[1]["Median"]));
-                annual_dataset.push(parseFloat(statewageList[1]["Median"]));
-                annual_dataset.push(parseFloat(nationalwagelist[1]["Pct75"]));
-                annual_dataset.push(parseFloat(statewageList[1]["Pct75"]));
+                //use element 1            
+                annual_dataset = [{
+                    "model_name": "Pct10",
+                    "National": parseFloat(nationalwagelist[1]["Pct10"]),
+                    "State": parseFloat(statewageList[1]["Pct10"])
+                }, {
+                    "model_name": "Pct25",
+                    "National": parseFloat(nationalwagelist[1]["Pct25"]),
+                    "State": parseFloat(statewageList[1]["Pct25"])
+                }, {
+                    "model_name": "Median",
+                    "National": parseFloat(nationalwagelist[1]["Median"]),
+                    "State": parseFloat(statewageList[1]["Median"])
+                }, {
+                    "model_name": "Pct75",
+                    "National": parseFloat(nationalwagelist[1]["Pct75"]),
+                    "State": parseFloat(statewageList[1]["Pct75"])
+                }];
             }
         } else {
             //hourly
             if (statewageList[0]["RateType"] === "Hourly") {
-                hourly_dataset.push(parseFloat(nationalwagelist[1]["Pct10"]));
-                hourly_dataset.push(parseFloat(statewageList[0]["Pct10"]));
-                hourly_dataset.push(parseFloat(nationalwagelist[1]["Pct25"]));
-                hourly_dataset.push(parseFloat(statewageList[0]["Pct25"]));
-                hourly_dataset.push(parseFloat(nationalwagelist[1]["Median"]));
-                hourly_dataset.push(parseFloat(statewageList[0]["Median"]));
-                hourly_dataset.push(parseFloat(nationalwagelist[1]["Pct75"]));
-                hourly_dataset.push(parseFloat(statewageList[0]["Pct75"]));
+                hourly_dataset = [{
+                    "model_name": "Pct10",
+                    "National": parseFloat(nationalwagelist[1]["Pct10"]),
+                    "State": parseFloat(statewageList[0]["Pct10"])
+                }, {
+                    "model_name": "Pct25",
+                    "National": parseFloat(nationalwagelist[1]["Pct25"]),
+                    "State": parseFloat(statewageList[0]["Pct25"])
+                }, {
+                    "model_name": "Median",
+                    "National": parseFloat(nationalwagelist[1]["Median"]),
+                    "State": parseFloat(statewageList[0]["Median"])
+                }, {
+                    "model_name": "Pct75",
+                    "National": parseFloat(nationalwagelist[1]["Pct75"]),
+                    "State": parseFloat(statewageList[0]["Pct75"])
+                }];
             } else {
                 //use element 1
-                hourly_dataset.push(parseFloat(nationalwagelist[1]["Pct10"]));
-                hourly_dataset.push(parseFloat(statewageList[1]["Pct10"]));
-                hourly_dataset.push(parseFloat(nationalwagelist[1]["Pct25"]));
-                hourly_dataset.push(parseFloat(statewageList[1]["Pct25"]));
-                hourly_dataset.push(parseFloat(nationalwagelist[1]["Median"]));
-                hourly_dataset.push(parseFloat(statewageList[1]["Median"]));
-                hourly_dataset.push(parseFloat(nationalwagelist[1]["Pct75"]));
-                hourly_dataset.push(parseFloat(statewageList[1]["Pct75"]));
+                hourly_dataset = [{
+                    "model_name": "Pct10",
+                    "National": parseFloat(nationalwagelist[1]["Pct10"]),
+                    "State": parseFloat(statewageList[1]["Pct10"])
+                }, {
+                    "model_name": "Pct25",
+                    "National": parseFloat(nationalwagelist[1]["Pct25"]),
+                    "State": parseFloat(statewageList[1]["Pct25"])
+                }, {
+                    "model_name": "Median",
+                    "National": parseFloat(nationalwagelist[1]["Median"]),
+                    "State": parseFloat(statewageList[1]["Median"])
+                }, {
+                    "model_name": "Pct75",
+                    "National": parseFloat(nationalwagelist[1]["Pct75"]),
+                    "State": parseFloat(statewageList[1]["Pct75"])
+                }];
             }
         }
         console.log("annual_dataset");
@@ -358,67 +431,86 @@ function callWagesAPI(searchLocation, searchPosition) {
 
         //------------charting ----------------------------------------
         if (hourly_dataset.length > 1) {
-            var svgWidth = 400;
-            var svgHeight = 400;
-            var percentDisplay = 0;
-            var amtCutOff = 0;
-            var svg = d3.select("svg");
-            var margin = 100;
-            var width = svgWidth - margin;
-            var height = svgHeight - margin;
+            var models = hourly_dataset;
 
-            //find the proportion for the gragh heights
-            var maxWage = Math.max.apply(Math, hourly_dataset);
-            var minWage = Math.min.apply(Math, hourly_dataset);
-
-            var amtCutOff = 0;
-            if (maxWage - minWage >= 0.9 * svgHeight) {
-                console.log("Disparity is too large for clear graphs");
-                amtCutOff = Math.ceil(minWage / 2);
+            var container = d3.select('#d3id'),
+                width = 400,
+                height = 300,
+                margin = {
+                    top: 30,
+                    right: 20,
+                    bottom: 30,
+                    left: 50
+                },
+                barPadding = .2
+            var axisTicks = {
+                qty: 5,
+                outerSize: 0,
+                dateFormat: '%m-%d'
             }
 
-            var percentDisplay = svgHeight / maxWage;
+            var svg = container
+                .append("svg")
+                .attr("width", width)
+                .attr("height", height)
+                .append("g")
+                .attr("transform", `translate(${margin.left},${margin.top})`);
 
-            console.log("percent Display", percentDisplay);
-            console.log("amtCutOff Display", amtCutOff);
+            var xScale0 = d3.scaleBand().range([0, width - margin.left - margin.right]).padding(barPadding);
+            var xScale1 = d3.scaleBand();
+            var yScale = d3.scaleLinear().range([height - margin.top - margin.bottom, 0]);
 
-            // var svg = d3.select("svg"),
-            //     margin = 20,
-            //     width = svg.attr("width") - margin,
-            //     height = svg.attr("height") - margin;
+            var xAxis = d3.axisBottom(xScale0).tickSizeOuter(axisTicks.outerSize);
+            var yAxis = d3.axisLeft(yScale).ticks(axisTicks.qty).tickSizeOuter(axisTicks.outerSize);
 
-            // var xScale = d3.scaleBand().range([0, width]).padding(0.4),
-            //     yScale = d3.scaleLinear().range([height, 0]);
+            xScale0.domain(models.map(d => d.model_name));
+            xScale1.domain(['National', 'State']).range([0, xScale0.bandwidth()]);
+            yScale.domain([0, d3.max(models, d => d.National > d.State ? d.National : d.State)]);
 
-            // var g = svg
-            //     .append("g")
-            //     .attr("transform", "translate(" + 100 + "," + 100 + ")");
-            var svg = d3
-                .select("svg")
-                .attr("viewBox", `0 0 400 300`)
-                .attr("class", "bar-chart");
+            var model_name = svg.selectAll(".model_name")
+                .data(models)
+                .enter().append("g")
+                .attr("class", "model_name")
+                .attr("transform", d => `translate(${xScale0(d.model_name)},0)`);
 
-            var dataset = hourly_dataset;
-
-            var barPadding = 10;
-            var barWidth = svgWidth / dataset.length;
-
-            var barChart = svg
-                .selectAll("rect")
-                .data(dataset)
+            /* Add National bars */
+            model_name.selectAll(".bar.National")
+                .data(d => [d])
                 .enter()
                 .append("rect")
-                .attr("y", function(d) {
-                    return svgHeight - (d * percentDisplay - amtCutOff);
-                })
-                .attr("height", function(d) {
-                    return d * percentDisplay - amtCutOff;
-                })
-                .attr("width", barWidth - barPadding)
-                .attr("transform", function(d, i) {
-                    var translate = [barWidth * i, 0];
-                    return "translate(" + translate + ")";
+                .attr("class", "bar National")
+                .style("fill", "blue")
+                .attr("x", d => xScale1('National'))
+                .attr("y", d => yScale(d.National))
+                .attr("width", xScale1.bandwidth())
+                .attr("height", d => {
+                    return height - margin.top - margin.bottom - yScale(d.National)
                 });
+
+            /* Add State bars */
+            model_name.selectAll(".bar.State")
+                .data(d => [d])
+                .enter()
+                .append("rect")
+                .attr("class", "bar State")
+                .style("fill", "red")
+                .attr("x", d => xScale1('State'))
+                .attr("y", d => yScale(d.State))
+                .attr("width", xScale1.bandwidth())
+                .attr("height", d => {
+                    return height - margin.top - margin.bottom - yScale(d.State)
+                });
+
+            // Add the X Axis
+            svg.append("g")
+                .attr("class", "x axis")
+                .attr("transform", `translate(0,${height - margin.top - margin.bottom})`)
+                .call(xAxis);
+
+            // Add the Y Axis
+            svg.append("g")
+                .attr("class", "y axis")
+                .call(yAxis);
         } //check if data is available
     }); //end of function response
 }
@@ -436,5 +528,3 @@ $(document).on("click", "#wages-search-btn", function() {
 
     callWagesAPI(searchLocation, searchPosition);
 });
-
-}); // Ends document ready

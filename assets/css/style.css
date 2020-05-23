@@ -1,14 +1,16 @@
 body {
-  font-size: x-large;
+    font-size: x-large;
 }
 
 #userGreeting {
-  font-size: xx-large;
+    font-size: xx-large;
 }
+
+
 /*CSS Search Box*/
 
-#searchcolumn ,
-#displaywageinfo{
+#searchcolumn,
+#displaywageinfo {
     padding-left: 10px;
     padding-right: 10px;
     font-size: 20px;
@@ -20,215 +22,225 @@ body {
     text-align-last: left;
     display: flex;
 }
+
 .field input::placeholder,
 #searchFormPosition {
-  color: #aaa;
-  font-size: small;
-  font-weight: bold;
-  font-family: "Times New Roman", Times, serif;
-  font-size: 14px;
+    color: #aaa;
+    font-size: small;
+    font-weight: bold;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 14px;
 }
 
 #page {
-  width: 100%;
-  margin-top: -2px;
-  margin-left: -4px;
-  padding: 10px 28px 15px 4px;
-  color: black;
+    width: 100%;
+    margin-top: -2px;
+    margin-left: -4px;
+    padding: 10px 28px 15px 4px;
+    color: black;
 }
 
 #search-btn {
-  background: lightblue;
-  padding: 0 18px;
-  font-weight: bold;
-  font-family: "Times New Roman", Times, serif;
-  font-size: 20px;
-  text-decoration-color: #fff;
-  box-sizing: initial;
-}
-#wages-search-btn {
-  background: lightblue;
-  
-  font-weight: bold;
-  font-family: "Times New Roman", Times, serif;
-  font-size: 20px;
- align-content: center;
- padding-left: 10px;
- 
-  text-align: justify center;
+    background: lightblue;
+    padding: 0 18px;
+    font-weight: bold;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 20px;
+    text-decoration-color: #fff;
+    box-sizing: initial;
 }
 
+#wages-search-btn {
+    background: lightblue;
+    font-weight: bold;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 20px;
+    align-content: center;
+    padding-left: 10px;
+    text-align: justify center;
+}
 
 h4,
 h5,
 #searchFormCopy {
-  color: black;
+    color: black;
 }
+
 
 /* ------------------Modal/header CSS-------------- */
 
 h1 {
-  font-size: 50px;
-  text-align: center;
+    font-size: 50px;
+    text-align: center;
 }
 
 header {
-  background-image: url("https://plattcollege.edu/cms/wp-content/uploads/web-developer-classes-orange-county.jpg");
-  height: 470px;
-  width: 100%;
-  margin: auto;
-  padding: 35px;
-  color: white;
+    background-image: url("https://plattcollege.edu/cms/wp-content/uploads/web-developer-classes-orange-county.jpg");
+    height: 300px;
+    width: 100%;
+    margin-top: -100px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 35px;
+    color: white;
 }
 
 .bkground {
     text-align: center;
 }
 
-
 #invite {
-  margin-left: 60px;
-  margin-top: 150px;
+    margin-left: 60px;
+    margin-top: 150px;
 }
 
 h2 {
-  animation: type 4s steps(36);
-  overflow: hidden;
-  white-space: nowrap;  
-  width: 36ch;
-  color: black;
-  margin-left: -65px;
-  height: 100px;
-}
-span{
-  animation: blink 1s linear infinite;
-}
-@keyframes blink{
-  0%{opacity: 0;}  
-  100%{opacity: 1;}
-  }
-@keyframes type {
-  0% {
-    width: 0ch;
-  }
-  100% {
+    animation: type 4s steps(36);
+    overflow: hidden;
+    white-space: nowrap;
     width: 36ch;
-  }
+    color: black;
+    margin-left: -65px;
+    height: 100px;
+}
+
+span {
+    animation: blink 1s linear infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes type {
+    0% {
+        width: 0ch;
+    }
+    100% {
+        width: 36ch;
+    }
 }
 
 #myBtn {
-  background: lightblue;
- 
-  font-size: 30px;
-  border-radius: 12px;
-  
+    background: lightblue;
+    font-size: 30px;
+    border-radius: 12px;
 }
 
 .modal {
-  z-index: 1;
-  /* Sit on top */
-  padding-top: 100px;
-  /* Location of the box */
-  width: 100%;
-  /* Full width */
-  height: 100%;
-  /* Full height */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
 }
+
 
 /* Modal Content */
 
 .modal-content {
-  background-color: white;
-  margin: auto;
-  padding-bottom: 70px;
-  border: 2px solid blue;
-  width: 500px;
+    background-color: white;
+    margin: auto;
+    padding-bottom: 70px;
+    border: 2px solid blue;
+    width: 500px;
 }
+
 
 /* The Close Button */
 
 .close {
-  color: red;
-  float: left;
-  font-size: 50px;
-  font-weight: bold;
-  padding-left: 30px;
+    color: red;
+    float: left;
+    font-size: 50px;
+    font-weight: bold;
+    padding-left: 30px;
 }
 
 .close:hover,
 .close:focus {
-  color: #000;
-  cursor: pointer;
+    color: #000;
+    cursor: pointer;
 }
 
 #options1 {
-  color: black;
-  background: aqua;
-  margin-right: 200px;
-  margin-left: 180px;
-  width: 120px;
+    color: black;
+    background: aqua;
+    margin-right: 200px;
+    margin-left: 180px;
+    width: 120px;
 }
 
 .input-group-prepend {
-  padding-left: 70px;
-  padding-top: 20px;
+    padding-left: 70px;
+    padding-top: 20px;
 }
 
 .article-news {
-  margin-left: 75px;
-  height: 390px;
-  padding: 50px;
-  width: 350px;
+    margin-left: 75px;
+    height: 390px;
+    padding: 50px;
+    width: 350px;
 }
 
 #article-words {
-  width: 300px;
-  height: 200px;
+    width: 300px;
+    height: 200px;
 }
 
+
 /*Resources and traing buttons*/
+
 .dropdown {
-  position: relative;
-  display: inline-block;
+    position: relative;
+    display: inline-block;
 }
 
 .dropbtn {
-  background-color: lightblue;
-  color: white;
-  padding: 20px;
-  font-size: 18px;
+    background-color: lightblue;
+    color: white;
+    padding: 20px;
+    font-size: 18px;
 }
 
 .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
 }
 
 .dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  display: block;
+    color: black;
+    padding: 12px 16px;
+    display: block;
 }
 
 .dropdown-content a:hover {
-  background-color: #ddd;
+    background-color: #ddd;
 }
 
 .dropdown:hover .dropdown-content {
-  display: block;
+    display: block;
 }
 
 .dropdown:hover .dropbtn {
-  background-color: lightblue;
+    background-color: lightblue;
 }
 
 .logo {
-  width: 100%;
-  height: 200px;
+    width: 100%;
+    height: 200px;
 }
 
 .bar-chart {
@@ -246,14 +258,9 @@ svg text {
 }
 
 .dropbtn {
-  background:black;
-  font-size: 20px;
-  border-radius: 12px;
-  margin:40px;
-  margin-bottom: 0px;
-
-  
- 
-  
-
+    background: black;
+    font-size: 20px;
+    border-radius: 12px;
+    margin: 40px;
+    margin-bottom: 0px;
 }

@@ -54,7 +54,7 @@ $(document).ready(function() {
     };
 
     let url3 =
-        "http://newsapi.org/v2/top-headlines?country=us&category=technology&pagesize=3&page=1&apiKey=fa998b4e27f24b81880beb0cb16f85b6";
+        "https://newsapi.org/v2/top-headlines?country=us&category=technology&pagesize=3&page=1&apiKey=fa998b4e27f24b81880beb0cb16f85b6";
 
     $.ajax({
         url: url3,
@@ -79,7 +79,7 @@ $(document).ready(function() {
             $("#newsResults").html(output);
         }, //ends newsdata
     }); //ends ajax
-}); // Ends document ready
+
 
 //---------------NEWS ARTICLES----------------------------------------------
 
@@ -436,3 +436,5 @@ $(document).on("click", "#wages-search-btn", function() {
 
     callWagesAPI(searchLocation, searchPosition);
 });
+
+}); // Ends document ready

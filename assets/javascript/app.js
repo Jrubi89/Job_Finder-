@@ -48,19 +48,17 @@ $(document).ready(function() {
         let personsName = $("#userName").val()
         window.localStorage.setItem("username", personsName)
 
-        console.log("Welcome, " + personsName)
-
         $("#userGreeting").append("Welcome, " + personsName)
     };
 
     let url3 =
-        "https://newsapi.org/v2/top-headlines?country=us&category=technology&pagesize=3&page=1&apiKey=fa998b4e27f24b81880beb0cb16f85b6";
+        "https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/top-headlines?country=us&category=technology&pagesize=3&page=1&apiKey=fa998b4e27f24b81880beb0cb16f85b6";
 
     $.ajax({
         url: url3,
         method: "GET",
         dataType: "JSON",
-
+        headers: { "Access-Control-Allow-Origin": "*", },
         success: function(newsdata) {
             let output = "";
             let newNews = newsdata.articles;
@@ -122,7 +120,6 @@ function renderJobCards(
 function checkandReplaceSpaces(stringToFormat) {
     stringToFormat = stringToFormat.trim();
     stringToFormat.replace(/\s/g, "+");
-    console.log(stringToFormat);
     return stringToFormat;
 }
 
@@ -167,14 +164,14 @@ function callAPI(skillName, jobLocation, fullTime, offset) {
 
     //need a try catch block for errors
 
-    console.log(queryURL);
 
     $.ajax({
         url: queryURL,
         method: "GET",
         async: false,
+        headers: { "Access-Control-Allow-Origin": "*", },
         error: function(err) {
-            console.log(err);
+
             $(".displaycards").empty();
             var errcardDiv =
                 '<div class="row"><div class="card w-80"><div class="card-header"><h3 class="card-title">' +
@@ -193,11 +190,12 @@ function callAPI(skillName, jobLocation, fullTime, offset) {
         //initialize to 0
         globalJobs = 0;
 
-        console.log(response);
+        //get response
         requiredArray = response;
-        console.log(requiredArray.length);
+
         //reset divs and the global variables
         $(".displaycards").empty();
+
         var breakDiv = '<div class="row"><br/></div>';
         $(".displaycards").append(breakDiv);
         for (var i = 0; i < requiredArray.length; i++) {
@@ -212,6 +210,7 @@ function callAPI(skillName, jobLocation, fullTime, offset) {
             );
             globalJobs = globalJobs + 1;
         }
+
         if (requiredArray.length === 0) {
             var cardDiv =
                 '<div class="row"><div class="card w-80"><div class="card-header"><h3 class="card-title">' +
@@ -228,13 +227,11 @@ function callAPI(skillName, jobLocation, fullTime, offset) {
 
 //actions to be carried out when the search button is hit
 $(document).on("click", "#search-btn", function() {
-    console.log("display-jobs-section");
+
     //get the search parameters
     const searchSkill = $("#searchFormSkill").val().trim();
     const searchLocation = $("#searchFormLocation").val().trim();
     const fullTime = $("#searchFormPosition").children("option:selected").val();
-
-    console.log(searchSkill, searchLocation, fullTime);
 
     callAPI(searchSkill, searchLocation, fullTime);
 });
@@ -245,7 +242,6 @@ $(document).on("click", "#search-btn", function() {
 //ajax call to the API
 function callWagesAPI(searchLocation, searchPosition) {
     // Constructing a URL to search for the job
-    debugger;
     const token =
         "4+0CUzMzAuJK0eSUvLwwqUgrm5Lb2JhAVKGlttonnKTHtxhmnAk1h1FqAOsR1ZY0nVmNTqMh3ZFyEg745ofzuA==";
     var wqueryURL =
@@ -254,30 +250,28 @@ function callWagesAPI(searchLocation, searchPosition) {
         "/" +
         searchLocation +
         "?training=false&interest=true&videos=true&tasks=true&dwas=false&wages=true&alternateOnetTitles=false&projectedEmployment=true&ooh=true&stateLMILinks=true&relatedOnetTitles=true&skills=true&knowledge=true&ability=true&trainingPrograms=true";
-    console.log(wqueryURL);
 
     $.ajax({
         url: wqueryURL,
         method: "GET",
         async: false,
-        headers: { Authorization: "Bearer " + token },
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            Authorization: "Bearer " + token
+        },
         error: function(err) {
-            console.log(err);
             //alert("Jobs requested could not be returned");
         },
     }).then(function(response) {
         //return the response
-        debugger;
-        //reset divs and the global variables
-        console.log(response);
         //create the wage data set
         nationalwagelist =
             response["OccupationDetail"][0]["Wages"]["NationalWagesList"];
-        console.log(nationalwagelist);
+
         statewageList = response["OccupationDetail"][0]["Wages"]["StateWagesList"];
-        console.log(statewageList);
+
         wageyear = response["OccupationDetail"][0]["Wages"]["WageYear"];
-        console.log(wageyear);
+
         hourly_dataset = [];
         annual_dataset = [];
 
@@ -445,12 +439,9 @@ function callWagesAPI(searchLocation, searchPosition) {
                 }];
             }
         }
-        console.log("annual_dataset");
-        console.log(annual_dataset);
-        console.log("hourly_dataset");
-        console.log(hourly_dataset);
 
         //------------charting ----------------------------------------
+        // only charting hourly dataset comparasion
         if (hourly_dataset.length > 1) {
             $('#d3id').empty()
             var models = hourly_dataset;
@@ -532,10 +523,11 @@ function callWagesAPI(searchLocation, searchPosition) {
             svg.append("g")
                 .attr("class", "y axis")
                 .call(yAxis);
+
             // Handmade legend
             svg.append("circle").attr("cx", 20).attr("cy", 10).attr("r", 6).style("fill", "blue")
             svg.append("circle").attr("cx", 20).attr("cy", 30).attr("r", 6).style("fill", "red")
-            svg.append("text").attr("x", 90).attr("y", 10).text("National").style("font-size", "15px").attr("alignment-baseline", "middle")
+            svg.append("text").attr("x", 90).attr("y", 10).text("National").style("font-size", "15px").attr("alignment-baseline", "left")
             svg.append("text").attr("x", 70).attr("y", 30).text("State").style("font-size", "15px").attr("alignment-baseline", "middle")
 
 
@@ -545,14 +537,12 @@ function callWagesAPI(searchLocation, searchPosition) {
 
 //actions to be carried out when the search button is hit
 $(document).on("click", "#wages-search-btn", function() {
-    console.log("display-wageinfo-section");
     //get the search parameters
     const searchLocation = $("#search-region-wage").val().trim();
     const searchPosition = $("#search-position-wage")
         .children("option:selected")
         .attr("value");
 
-    console.log(searchLocation, searchPosition);
 
     callWagesAPI(searchLocation, searchPosition);
 });

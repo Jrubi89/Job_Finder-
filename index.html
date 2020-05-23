@@ -39,39 +39,39 @@
 
                 <button id="myBtn">Let's Get Started!!</button>
 
-    
+
             </div>
             <div id="userGreeting"> </div>
 
-        <div class="dropdown">
+            <div class="dropdown">
 
-            <button class="dropbtn">Resources</button>
-            <div class="dropdown-content">
-                <h6><a href="https://www.myskillsmyfuture.org/" target="_blank">Career Skillset</a></h6>
-                <h6><a href="https://www.bls.gov/oes/current/oes_fl.htm" target="_blank">Employement Statistics</a></h6>
-                <h6><a href="https://resumegenius.com/resume-samples/web-developer-resume-example" target="_blank">Resume </a></h6>
-                <h6><a href="https://www.byte-by-byte.com/dress-for-a-coding-interview/" target="_blank">Top Interview Questions for Developers</a></h6>
-                <h6><a href="https://www.byte-by-byte.com/dress-for-a-coding-interview/" target="_blank">Interview Dress Code</a></h6>
+                <button class="dropbtn">Resources</button>
+                <div class="dropdown-content">
+                    <h6><a href="https://www.myskillsmyfuture.org/" target="_blank">Career Skillset</a></h6>
+                    <h6><a href="https://www.bls.gov/oes/current/oes_fl.htm" target="_blank">Employement Statistics</a></h6>
+                    <h6><a href="https://resumegenius.com/resume-samples/web-developer-resume-example" target="_blank">Resume </a></h6>
+                    <h6><a href="https://www.byte-by-byte.com/dress-for-a-coding-interview/" target="_blank">Top Interview Questions for Developers</a></h6>
+                    <h6><a href="https://www.byte-by-byte.com/dress-for-a-coding-interview/" target="_blank">Interview Dress Code</a></h6>
+                </div>
+
             </div>
 
-        </div>
+            <div class="dropdown">
 
-        <div class="dropdown">
+                <button class="dropbtn">Training</button>
+                <div class="dropdown-content">
+                    <h6><a href="https://www.switchup.org/rankings/best-coding-bootcamps" target="_blank">Bootcamps</a></h6>
+                    <h6><a href="https://www.w3schools.com/" target="_blank">W3 Schools</a></h6>
+                    <h6><a href="https://www.rithmschool.com/courses" target="_blank">Rithm School</a></h6>
+                </div>
 
-            <button class="dropbtn">Training</button>
-            <div class="dropdown-content">
-                <h6><a href="https://www.switchup.org/rankings/best-coding-bootcamps" target="_blank">Bootcamps</a></h6>
-                <h6><a href="https://www.w3schools.com/" target="_blank">W3 Schools</a></h6>
-                <h6><a href="https://www.rithmschool.com/courses" target="_blank">Rithm School</a></h6>
             </div>
 
+
+
+
         </div>
-
-
-       
-
-    </div>
-    <!--ends container-->
+        <!--ends container-->
 
     </div>
 
@@ -178,7 +178,8 @@
                 <!-- Location -->
                 <label>Location</label>
                 <div class="row">
-                    <input type="text" id="search-region-wage" class="form-control mb-4" placeholder="Filter by State (eg VA)" />
+                    <input type="text" id="search-region-wage" class="form-control mb-4" placeholder="Filter by State (eg VA)" required pattern="^((A[LKSZR])|(C[AOT])|(D[EC])|(F[ML])|(G[AU])|(HI)|(I[DLNA])|(K[SY])|(LA)|(M[EHDAINSOT])|(N[EVHJMYCD])|(MP)|(O[HKR])|(P[WAR])|(RI)|(S[CD])|(T[NX])|(UT)|(V[TIA])|(W[AVIY]))$"
+                    />
                 </div>
 
                 <div class="row">

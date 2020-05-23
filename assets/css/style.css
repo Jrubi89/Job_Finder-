@@ -20,7 +20,6 @@ body {
     padding-top: 50px;
     padding-bottom: 50px;
     text-align-last: left;
-    display: flex;
 }
 
 .field input::placeholder,
@@ -150,7 +149,7 @@ span {
     background-color: white;
     margin: auto;
     padding-bottom: 70px;
-    border: 2px solid blue;
+    border: 2px solid black;
     width: 500px;
 }
 
@@ -173,7 +172,7 @@ span {
 
 #options1 {
     color: black;
-    background: aqua;
+    background: lightblue;
     margin-right: 200px;
     margin-left: 180px;
     width: 120px;

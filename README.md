@@ -1,4 +1,5 @@
-# Hire Me 
+# Hire Development V1.0
+
 
 Link to site:
 https://gitsunitha.github.io/ProjectApp/
@@ -7,20 +8,40 @@ https://gitsunitha.github.io/ProjectApp/
 Please install the CORS plugin for Chrome ( or your favored app)
 https://mybrowseraddon.com/access-control-allow-origin.html?v=0.1.3&type=install
 
-##USERGUIDE
-  Welcome,
-    We hope you enjoy utilizing our website to help 
-    launch you into the web development industry.
-    
-    The design of the website was carefully planned out by a 
-    special team of web developers and we take great pride
-    in our work. 
-    
-    Here you will find the most simple and useful tools to get started
-    in looking for a career in the great world of web development.
-    
-    The main tools you will find in this app are
-    ###Job Search
-      Look for a job near by and at any level you may be. Whether that
-      be an entry-level or senior developer!
 
+## User Guide V1.0
+
+
+This website is for users looking for tech jobs in their preferred location.
+
+### Steps to follow:
+- There are 3 latest technical news articles for the user to peruse when arriving on the website
+- to get the job search going , click the blue "Lets get started button" button
+- Enter your name and email for easy Ui experience . This is optional
+- There will be a search form on your left ; where you can enter your location and one skill and if you are looking for fulltime or partime position
+- You can also look on the right hand side for hourly salary comparison(state vs nation) for a position 
+- We also have additional resources to help job seeker in their journey on the following topics:
+  - Under Resources :
+    - Career Skill set
+    - Employment Statistics
+    - Resume
+    - op Interview Questions
+    - Interview Dress Code
+  - Under Training:
+    - Bootcamps
+    - W3 Schools
+    - Rithm Schools
+ 
+
+
+###Technical information:
+API's used:
+- for the news articles : https://newsapi.org/v2/top-headlines
+- for the job search  : https://jobs.github.com/positions.json
+- for the salary comparisons: https://api.careeronestop.org/v1/occupation
+
+### for future versions:
+- Allow logins to be created so that user can save their information like resume and favorites
+- Resume Uploads 
+- email favorite jobs to the users mailbox
+- more advanced search

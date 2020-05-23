@@ -175,7 +175,7 @@ function callAPI(skillName, jobLocation, fullTime, offset) {
         async: false,
         error: function(err) {
             console.log(err);
-            alert("Jobs requested could not be returned");
+            //alert("Jobs requested could not be returned");
         },
     }).then(function(response) {
         //return the response
@@ -242,7 +242,7 @@ function callWagesAPI(searchLocation, searchPosition) {
         headers: { Authorization: "Bearer " + token },
         error: function(err) {
             console.log(err);
-            alert("Jobs requested could not be returned");
+            //alert("Jobs requested could not be returned");
         },
     }).then(function(response) {
         //return the response

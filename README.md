@@ -45,3 +45,8 @@ API's used:
 - Resume Uploads 
 - email favorite jobs to the users mailbox
 - more advanced search
+
+
+### Screen Shot 
+
+<img width="1920" alt="Screen Shot 2020-06-01 at 9 49 05 PM" src="https://user-images.githubusercontent.com/60458491/90945953-70abf900-e3f6-11ea-874e-fda51d6b1dfa.png">

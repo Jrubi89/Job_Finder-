@@ -2,7 +2,7 @@
 
 
 Link to site:
-https://gitsunitha.github.io/ProjectApp/
+https://jrubi89.github.io/ProjectApp/
 
 ## Pre-requisite
 Please install the CORS plugin for Chrome ( or your favored app)

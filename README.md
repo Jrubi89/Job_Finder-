@@ -2,7 +2,7 @@
 
 
 Link to site:
-https://jrubi89.github.io/ProjectApp/
+https://jrubi89.github.io/Job_Finder-/
 
 ## Pre-requisite
 Please install the CORS plugin for Chrome ( or your favored app)
